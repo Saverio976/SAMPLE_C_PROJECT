@@ -8,6 +8,11 @@
 #ifndef MY_PUTS_H_
     #define MY_PUTS_H_
 
+    #include <stdarg.h>
+
+// put format
+int my_printf(char const *, ...);
+
 // put char in stdout
 int my_putchar(char);
 
