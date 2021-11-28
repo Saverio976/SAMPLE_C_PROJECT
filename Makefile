@@ -50,7 +50,7 @@ $(OBJDIR)%.o: %.c
 all:	$(LIB_TARGET) $(TARGET) ## Build lib+binary
 
 $(TARGET):	$(OBJ) $(MAIN_OBJ) ## Build the binary
-	$(CC) $(OBJ) $(MAIN_OBJ) -o $(TARGET) $(LFLAGS)
+	$(CC) $(OBJ) $(MAIN_OBJ) -o $(TARGET) $(LFLAGS) $(CFLAGS)
 
 $(LIB_TARGET): ## Build the lib
 	$(MAKE) -C lib/
@@ -73,7 +73,7 @@ tests_run: cr_tests_run ## The rule called by Marvin to make coverage
 
 .PHONY: cr_tests_run
 cr_tests_run: CFLAGS += --coverage ## Criterion tests
-cr_tests_run: build_lib $(OBJ) $(TEST_OBJ)
+cr_tests_run: fclean $(LIB_TARGET) $(OBJ) $(TEST_OBJ)
 	$(CC) $(CFLAGS) $(OBJ) $(TEST_OBJ) -o $(TARGET_TEST) $(LFLAGS) \
 		$(CR_TEST_FLAGS)
 	./$(TARGET_TEST)
@@ -81,13 +81,13 @@ cr_tests_run: build_lib $(OBJ) $(TEST_OBJ)
 	gcovr --exclude tests/ --branch
 
 .PHONY: sanitize_tests_run
-sanitize_tests_run: CFLAGS += -fsanitize=address fsanitize=leak
-sanitize_tests_run: CFLAGS += -fsanitize=undefined
+sanitize_tests_run: CFLAGS += -fsanitize=address -fsanitize=undefined
+sanitize_tests_run: LFLAGS += -fsanitize=leak
 sanitize_tests_run: all
 
 .PHONY: fn_tests_run
 fn_tests_run: CFLAGS += $(FN_TEST_FLAGS) ## Fonctional tests
-fn_tests_run: $(OBJ) $(MAIN_OBJ)
+fn_tests_run: fclean $(LIB_TARGET) $(OBJ) $(MAIN_OBJ)
 	$(CC) $(CFLAGS) $(OBJ) $(MAIN_OBJ) -o $(TARGET_TEST) $(LFLAGS)
 	./tests/fn_tests.sh ./$(TARGET_TEST)
 	gcov $(TARGET_TEST)
