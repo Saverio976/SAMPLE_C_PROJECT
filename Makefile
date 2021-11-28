@@ -102,5 +102,5 @@ init_repo:
 	mv src/ ..
 	mv tests/ ..
 	mv Makefile ..
-	cp ~/.src/install-sh-script/git/.gitignore .
-	cp -r ~/.src/install-sh-script/git/.github .
+	cp ~/.src/install-sh-script/git/.gitignore ..
+	cp -r ~/.src/install-sh-script/git/.github ..
