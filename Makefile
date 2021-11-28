@@ -93,3 +93,8 @@ fn_tests_run: fclean $(LIB_TARGET) $(OBJ) $(MAIN_OBJ)
 	gcov $(TARGET_TEST)
 	gcovr --exclude tests/
 	gcovr --exclude tests/ --branch
+
+.PHONY: get_dot_files
+get_dot_files:
+	cp ~/.src/install-sh-script/git/.gitignore .
+	cp -r ~/.src/install-sh-script/git/.github .
