@@ -96,11 +96,11 @@ fn_tests_run: fclean $(LIB_TARGET) $(OBJ) $(MAIN_OBJ)
 
 .PHONY: get_dot_files
 init_repo:
-	mv -r include/ ..
-	mv -r lib/ ..
-	mv -r obj/ ..
-	mv -r src/ ..
-	mv -r tests/ ..
+	mv include/ ..
+	mv lib/ ..
+	mv obj/ ..
+	mv src/ ..
+	mv tests/ ..
 	mv Makefile ..
 	cp ~/.src/install-sh-script/git/.gitignore .
 	cp -r ~/.src/install-sh-script/git/.github .
