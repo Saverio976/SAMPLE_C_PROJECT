@@ -4,6 +4,7 @@ on: [push]
 
 jobs:
   makefile:
+    runs-on: ubuntu-latest
     container: epitechcontent/epitest-docker:latest
 
     steps:
