@@ -24,3 +24,6 @@ jobs:
 
     - name: make clean
       run: make clean
+
+    - name: make tests_run
+      run: make tests_run
