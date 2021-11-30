@@ -104,3 +104,5 @@ init_repo:
 	mv Makefile ..
 	cp ~/.src/install-sh-script/git/.gitignore ..
 	cp -r ~/.src/install-sh-script/git/.github ..
+	touch ../obj/.keep
+	touch ../lib/obj/.keep
