@@ -58,6 +58,7 @@ $(LIB_TARGET): ## Build the lib
 .PHONY: clean
 clean: ## Clean obj and gcno/gcda
 	rm -f $(OBJDIR)*.o
+	rm -f vgcore.*
 	rm -f **/*.gcno **/*.gcda
 
 .PHONY: fclean
