@@ -103,7 +103,7 @@ init_repo:
 	mv src/ ..
 	mv tests/ ..
 	mv Makefile ..
-	cp ~/.src/install-sh-script/git/.gitignore ..
-	cp -r ~/.src/install-sh-script/git/.github ..
+	cp ~/.src/SAMPLE_C_PROJECT/.gitignore ..
+	cp -r ~/.src/SAMPLE_C_PROJECT/.github ..
 	touch ../obj/.keep
 	touch ../lib/obj/.keep
