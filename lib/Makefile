@@ -5,39 +5,45 @@
 ## make the libmy
 ##
 
+# COLOUR
+CYAN		=	'\033[0;36m'
+GREEN 		= 	'\033[0;32m'
+RESET		=	'\033[0m'
+
+# TARGET
 TARGET		=	libmy.a
 
 SRCDIR		=	src/
 
-OBJDIR		=	obj/
-
 VPATH		=	$(SRCDIR) $(OBJDIR) include/
 
-SRC		=	$(wildcard $(SRCDIR)*.c)
+SRC		=	$(shell find $(SRCDIR) -name '*.c')
 
 OBJ		:=	$(SRC:%.c=%.o)
-OBJ		:=	$(addprefix $(OBJDIR), $(notdir $(OBJ)))
 
 CFLAGS		=	-Iinclude -Wall -Wextra -Wpedantic
 
 # ----------------------------------------------------------------------------
 
-$(OBJDIR)%.o: %.c
-	$(CC)     $(CFLAGS)     $^ -c -o $@
+%.o: %.c
+	@$(CC)     $(CFLAGS)     $^ -c -o $@
+	@echo -e $(CYAN)'compil : $(notdir $^) -> $(notdir $@)'$(RESET)
 
 .PHONY: all
 all:	$(TARGET) ## Call $(TARGET)
 
 $(TARGET):	$(OBJ) ## Build the lib
-	ar rc $(TARGET) $(OBJ)
+	@ar rc $(TARGET) $(OBJ)
+	@echo -e $(GREEN)archived : $(TARGET)$(RESET)
 
 .PHONY: clean
 clean: ## Clean obj/*.o
-	rm -f $(OBJDIR)*.o
+	@rm -f $(OBJ)
 
 .PHONY: fclean
 fclean:	clean ## Clean the binary
-	rm -f $(TARGET)
+	@rm -f $(TARGET)
+	@echo -e $(GREEN)make fclean$(RESET)
 
 .PHONY: re
 re:	fclean all ## Fclean+All
