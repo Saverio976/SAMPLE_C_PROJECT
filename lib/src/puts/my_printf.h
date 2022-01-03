@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2021
 ** LIBMY
 ** File description:
-** the internal function and structure for printf
+** the internal function and structure for _printf
 */
 
 #ifndef MY_PRINTF_H_
