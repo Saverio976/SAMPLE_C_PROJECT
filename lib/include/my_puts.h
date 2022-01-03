@@ -10,7 +10,7 @@
 
     #include <stdarg.h>
 
-// put format
+// put format (_printf like)
 int my_printf(char const *, ...);
 
 // put char in stdout
