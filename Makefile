@@ -23,15 +23,12 @@ VPATH		=	$(SRCDIR) lib/ include/ tests/
 
 SRC		:=	$(shell find $(SRCDIR) -name '*.c')
 SRC		:=	$(filter-out $(SRCDIR)main.c, $(SRC))
-
 OBJ		:=	$(SRC:%.c=%.o)
 
 MAIN_SRC	=	$(SRCDIR)main.c
-
 MAIN_OBJ	:=	$(MAIN_SRC:%.c=%.o)
 
 TEST_SRC	= 	$(shell find tests/ -name '*.c')
-
 TEST_OBJ	:=	$(TEST_SRC:%.c=%.o)
 
 CFLAGS		= 	-Iinclude/ -Ilib/include/ -Wall -Wextra -Wpedantic
@@ -52,23 +49,23 @@ FN_TEST_FLAGS	=	-ftest-coverage -fprofile-arcs
 all:	$(LIB_TARGET) $(TARGET) ## Build lib+binary
 
 $(TARGET):	$(OBJ) $(MAIN_OBJ) ## Build the binary
-	$(CC) $(OBJ) $(MAIN_OBJ) -o $(TARGET) $(LFLAGS) $(CFLAGS)
-	@echo -e $(GREEN)linked to $(TARGET)$(RESET)
+	@$(CC) $(OBJ) $(MAIN_OBJ) -o $(TARGET) $(LFLAGS) $(CFLAGS)
+	@echo -e $(GREEN)[finished]: $(TARGET): make $(TARGET)$(RESET)
 
 $(LIB_TARGET): ## Build the lib
-	@$(MAKE) -C lib/
+	@$(MAKE) -C lib/ -s
 
 .PHONY: clean
 clean: ## Clean obj and gcno/gcda
 	@rm -f $(OBJ) $(MAIN_OBJ)
-	@rm -f vgcore.*
-	@rm -f **/*.gcno **/*.gcda
+	@rm -f $(shell find . -name 'vgcore.*')
+	@rm -f $(shell find . -name '*.gcno') $(shell find . -name '*.gcda')
 
 .PHONY: fclean
 fclean:	clean ## Clean+Remove target/target_test and call lib fclean
 	@$(MAKE) -C lib/ fclean -s
 	@rm -f $(TARGET) $(TARGET_TEST)
-	@echo -e $(GREEN)make fclean$(RESET)
+	@echo -e $(GREEN)[finished]: $(TARGET): make fclean$(RESET)
 
 .PHONY: re
 re:	fclean all ## Fclean+All
