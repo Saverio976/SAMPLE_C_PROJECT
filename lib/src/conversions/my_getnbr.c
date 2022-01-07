@@ -13,7 +13,7 @@ int my_getnbr(char const *str)
     int nb_minus = 0;
     int result = 0;
 
-    if (!*str)
+    if (!str)
         return (0);
     while (my_strinclude("\b\t\n\v\f\r ", str[i]))
         i++;
