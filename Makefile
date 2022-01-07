@@ -1,8 +1,8 @@
 ##
 ## EPITECH PROJECT, 2021
-## sample
+## ...
 ## File description:
-## sample description
+## make the ...
 ##
 
 # COLOUR
