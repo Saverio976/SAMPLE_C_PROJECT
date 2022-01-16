@@ -71,7 +71,7 @@ all:		$(LIB_TARGET) $(NAME)
 
 $(NAME):	$(OBJ)
 	@$(CC) $(OBJ) $(MAIN_OBJ) -o $(NAME) $(LDFLAGS) $(CFLAGS)
-	@echo -e $(GREEN)'[finished]: $(TARGET): make $(TARGET)'$(RESET)
+	@echo -e $(GREEN)'-> [finished]: $(TARGET): make $(TARGET)'$(RESET)
 
 $(LIB_TARGET):
 	@$(MAKE) -C $(dir $(LIB_TARGET)) all -s
@@ -86,7 +86,7 @@ clean:
 fclean:	clean
 	@$(MAKE) -C $(dir $(LIB_TARGET)) fclean -s
 	@rm -f $(NAME) $(TNAME)
-	@echo -e $(GREEN)'[finished]: $(TARGET): make fclean'$(RESET)
+	@echo -e $(GREEN)'-> [finished]: $(TARGET): make fclean'$(RESET)
 
 .PHONY: re
 re:	fclean all

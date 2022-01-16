@@ -44,11 +44,12 @@ LWORDARRAY	:=	$(LIB_WORDARRAY)libwa.a
 .PHONY: all
 all:	CURR_RULE = all
 all:	init $(LFS) $(LPUTS) $(LSTRINGS) $(LWORDARRAY) $(LCONVERSION) $(NAME)
-	@echo -e $(GREEN)'[finished]: $(NAME): make $(CURR_RULE)'$(RESET)
+	@echo -e $(GREEN)' -> [finished]: $(NAME): make $(CURR_RULE)'$(RESET)
 
 $(NAME):
 	ar rcT $(NAME) $(LFS) $(LPUTS) $(LSTRINGS) $(LWORDARRAY) \
 		$(LCONVERSION)
+	ranlib $(NAME)
 
 $(LFS):
 	$(MAKE) -C $(LIB_FS) all -s
@@ -67,12 +68,12 @@ $(LCONVERSION):
 
 .PHONY: init
 init:
-	@echo -e $(CYAN)'[starting]: $(NAME): make $(CURR_RULE)'$(RESET)
+	@echo -e $(CYAN)' -> [starting]: $(NAME): make $(CURR_RULE)'$(RESET)
 
 .PHONY: clean
 clean: 	CURR_RULE = clean
 clean:	init
-	@echo -e $(GREEN)'[finished]: $(NAME): make $(CURR_RULE)'$(RESET)
+	@echo -e $(GREEN)' -> [finished]: $(NAME): make $(CURR_RULE)'$(RESET)
 
 .PHONY: fclean
 fclean: CURR_RULE = fclean
@@ -84,7 +85,7 @@ fclean:	init
 	$(MAKE) -C $(LIB_WORDARRAY) fclean -s
 	$(MAKE) -C $(LIB_CONVERSION) fclean -s
 	@rm -f $(NAME)
-	@echo -e $(GREEN)'[finished]: $(NAME): make $(CURR_RULE)'$(RESET)
+	@echo -e $(GREEN)' -> [finished]: $(NAME): make $(CURR_RULE)'$(RESET)
 
 .PHONY: re
 re:	fclean all
