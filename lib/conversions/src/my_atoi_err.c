@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2021
-** LIBMY
+** LIBCONVERSION
 ** File description:
 ** str to int with error status
 */

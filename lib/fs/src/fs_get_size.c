@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2021
-** LIBMY
+** LIBFILE
 ** File description:
 ** return the nbyte of a file
 */

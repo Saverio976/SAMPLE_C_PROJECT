@@ -1,8 +1,8 @@
 ##
 ## EPITECH PROJECT, 2022
-## LIB_CONVERSION
+## LIBPUTS
 ## File description:
-## make the conversion lib
+## make the puts lib
 ##
 
 # ----------------------------------------------------------------------------

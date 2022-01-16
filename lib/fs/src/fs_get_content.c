@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2021
-** LIBMY
+** LIBFILE
 ** File description:
 ** get filess content from a buffer
 */

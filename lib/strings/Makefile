@@ -1,8 +1,8 @@
 ##
 ## EPITECH PROJECT, 2022
-## LIB_CONVERSION
+## LIBSTR
 ## File description:
-## make the conversion lib
+## make the strings lib
 ##
 
 # ----------------------------------------------------------------------------

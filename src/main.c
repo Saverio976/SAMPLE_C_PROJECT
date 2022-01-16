@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2021
-** ...
+** $NAME
 ** File description:
 ** the main entry point for the project
 */

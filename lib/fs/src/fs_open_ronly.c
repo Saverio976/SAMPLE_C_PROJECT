@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2021
-** LIBMY
+** LIBFILE
 ** File description:
 ** open a file in read only
 */
