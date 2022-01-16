@@ -1,102 +1,114 @@
 ##
 ## EPITECH PROJECT, 2021
-## ...
+## $NAME
 ## File description:
-## make the ...
+## make the $NAME
 ##
 
+# ----------------------------------------------------------------------------
+# TARGET
+NAME		=	ttt
+# ----------------------------------------------------------------------------
+
+# ----------------------------------------------------------------------------
 # COLOUR
 CYAN		=	'\033[0;36m'
 GREEN 		= 	'\033[0;32m'
+
 RESET		=	'\033[0m'
+# ----------------------------------------------------------------------------
 
-# TARGET
-TARGET		=	...
+# ----------------------------------------------------------------------------
+# IN-MAKEFILE SETTINGS
+CURR_RULE	=	all
+# ----------------------------------------------------------------------------
 
+# ----------------------------------------------------------------------------
+# SRC
+SRCDIR		:=	src/
+
+SRC		:=	main.c
+
+SRC		:=	$(addprefix $(SRCDIR),$(SRC))
+
+OBJ		:=	$(SRC:%.c=%.o)
+# ----------------------------------------------------------------------------
+
+# ----------------------------------------------------------------------------
+# LIB
 LIB_TARGET	=	lib/libmy.a
 
-TARGET_TEST	=	bin_test
+LDFLAGS		=	-L$(dir $(LIB_TARGET)) -lmy
+# ----------------------------------------------------------------------------
 
-SRCDIR		=	src/
+# ----------------------------------------------------------------------------
+# TEST
+TNAME		:=	bin_test
 
-VPATH		=	$(SRCDIR) lib/ include/ tests/
+TSRCDIR		:=	tests/
 
-SRC		:=	$(shell find $(SRCDIR) -name '*.c')
-SRC		:=	$(filter-out $(SRCDIR)main.c, $(SRC))
-OBJ		:=	$(SRC:%.c=%.o)
+TSRC		:=	$(filter-out $(SRCDIR)main.c,$(SRC))	\
+			test_basic.c
 
-MAIN_SRC	=	$(SRCDIR)main.c
-MAIN_OBJ	:=	$(MAIN_SRC:%.c=%.o)
+TSRC		:=	$(addprefix $(TSRCDIR),$(TSRC))
 
-TEST_SRC	= 	$(shell find tests/ -name '*.c')
-TEST_OBJ	:=	$(TEST_SRC:%.c=%.o)
+TOBJ		:=	$(TSRC:%.c=%.o)
+# ----------------------------------------------------------------------------
 
+# ----------------------------------------------------------------------------
+# FLAGS
 CFLAGS		= 	-Iinclude/ -Ilib/include/ -Wall -Wextra -Wpedantic
 
-LFLAGS		=	-Llib/ -lmy
-
-CR_TEST_FLAGS	=	-lcriterion
-
-FN_TEST_FLAGS	=	-ftest-coverage -fprofile-arcs
-
+CR_TEST_FLAGS	=	-lcriterion --coverage
 # ----------------------------------------------------------------------------
 
 %.o: %.c
-	@$(CC)     $(CFLAGS)    $^ -c -o $@
+	@$(CC) $(CFLAGS) $^ -c -o $@
 	@echo -e $(CYAN)'compil : $(notdir $^) -> $(notdir $@)'$(RESET)
 
 .PHONY: all
-all:	$(LIB_TARGET) $(TARGET) ## Build lib+binary
+all:		$(LIB_TARGET) $(NAME)
 
-$(TARGET):	$(OBJ) $(MAIN_OBJ) ## Build the binary
-	@$(CC) $(OBJ) $(MAIN_OBJ) -o $(TARGET) $(LFLAGS) $(CFLAGS)
-	@echo -e $(GREEN)[finished]: $(TARGET): make $(TARGET)$(RESET)
+$(NAME):	$(OBJ)
+	@$(CC) $(OBJ) $(MAIN_OBJ) -o $(NAME) $(LDFLAGS) $(CFLAGS)
+	@echo -e $(GREEN)'[finished]: $(TARGET): make $(TARGET)'$(RESET)
 
-$(LIB_TARGET): ## Build the lib
-	@$(MAKE) -C lib/ -s
+$(LIB_TARGET):
+	@$(MAKE) -C $(dir $(LIB_TARGET)) all -s
 
 .PHONY: clean
-clean: ## Clean obj and gcno/gcda
-	@rm -f $(OBJ) $(MAIN_OBJ)
-	@rm -f $(shell find . -name 'vgcore.*')
-	@rm -f $(shell find . -name '*.gcno') $(shell find . -name '*.gcda')
+clean:
+	@$(RM) $(OBJ) $(TOBJ)
+	@$(RM) vgcore.*
+	@$(RM) $(TOBJ:.o=.gcno) $(TOBJ:.o=.gcda)
 
 .PHONY: fclean
-fclean:	clean ## Clean+Remove target/target_test and call lib fclean
-	@$(MAKE) -C lib/ fclean -s
-	@rm -f $(TARGET) $(TARGET_TEST)
-	@echo -e $(GREEN)[finished]: $(TARGET): make fclean$(RESET)
+fclean:	clean
+	@$(MAKE) -C $(dir $(LIB_TARGET)) fclean -s
+	@rm -f $(NAME) $(TNAME)
+	@echo -e $(GREEN)'[finished]: $(TARGET): make fclean'$(RESET)
 
 .PHONY: re
-re:	fclean all ## Fclean+All
+re:	fclean all
 
 .PHONY: tests_run
-tests_run: cr_tests_run ## The rule called by Marvin to make coverage
+tests_run: cr_tests_run
 
 .PHONY: cr_tests_run
-cr_tests_run: CFLAGS += --coverage ## Criterion tests
-cr_tests_run: fclean $(LIB_TARGET) $(OBJ) $(TEST_OBJ)
-	$(CC) $(CFLAGS) $(OBJ) $(TEST_OBJ) -o $(TARGET_TEST) $(LFLAGS) \
-		$(CR_TEST_FLAGS)
-	./$(TARGET_TEST)
-	gcovr --exclude tests/
-	gcovr --exclude tests/ --branch
-
-.PHONY: sanitize_tests_run
-sanitize_tests_run: CFLAGS += -fsanitize=address -fsanitize=undefined
-sanitize_tests_run: LFLAGS += -fsanitize=leak
-sanitize_tests_run: all
+cr_tests_run: CFLAGS += $(CR_TEST_FLAGS)
+cr_tests_run: fclean $(LIB_TARGET) $(TEST_OBJ)
+	@$(CC) $(TEST_OBJ) -o $(TNAME) $(LDFLAGS) $(CR_TEST_FLAGS)
+	@./$(TARGET_TEST)
+	@gcovr --exclude tests/
+	@gcovr --exclude tests/ --branch
 
 .PHONY: fn_tests_run
-fn_tests_run: CFLAGS += $(FN_TEST_FLAGS) ## Fonctional tests
-fn_tests_run: fclean $(LIB_TARGET) $(OBJ) $(MAIN_OBJ)
-	$(CC) $(CFLAGS) $(OBJ) $(MAIN_OBJ) -o $(TARGET_TEST) $(LFLAGS)
-	./tests/fn_tests.sh ./$(TARGET_TEST)
-	gcov $(TARGET_TEST)
-	gcovr --exclude tests/
-	gcovr --exclude tests/ --branch
+fn_tests_run: CFLAGS
+fn_tests_run: re
+	@./tests/fn_tests.sh ./$(TARGET_TEST)
 
-.PHONY: get_dot_files
+# ----------------------------------------------------------------------------
+.PHONY: init_repo
 init_repo:
 	mv include/ ..
 	mv lib/ ..

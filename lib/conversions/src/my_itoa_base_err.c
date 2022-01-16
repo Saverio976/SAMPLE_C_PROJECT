@@ -1,13 +1,13 @@
 /*
-** EPITECH PROJECT, 2021
-** LIBMY
+** EPITECH PROJECT, 2022
+** LIBCONVERSION
 ** File description:
-** put decimal number in base b
+** int to str in base b with a status error
 */
 
 #include <stdlib.h>
+#include "my_macro.h"
 #include "my_strings.h"
-#include "my_puts.h"
 
 static char *dup_and_cat(char *dest, char c, int *cap)
 {
@@ -28,25 +28,31 @@ static char *dup_and_cat(char *dest, char c, int *cap)
     return (dest);
 }
 
-int my_putnbr_base(int nb, char const *base)
+static void do_zero_special_case(int nb, char *result)
+{
+    if (nb == 0 && result != NULL) {
+        result[0] = '0';
+    }
+}
+
+char *my_itoa_base_err(int nb, char const *base, int *is_error)
 {
     int i = 0;
     int max_cap = 12;
     int is_neg = nb < 0;
     char *result = my_calloc(max_cap);
 
-    if (is_neg)
-        nb = nb * -1;
-    if (nb == 0 && result != NULL)
-        result[i++] = '0';
+    nb = ABSOL(nb);
+    do_zero_special_case(nb, result);
     for (; nb != 0 && result != NULL; i++) {
         result = dup_and_cat(result, base[nb % my_strlen(base)], &max_cap);
         nb /= my_strlen(base);
     }
-    if (is_neg && result != NULL)
+    if (is_neg && result != NULL) {
         result[i] = '-';
-    result = my_revstr(result);
-    i = my_putstr(result);
-    free(result);
-    return (i);
+    }
+    if (result == NULL) {
+        *is_error = 1;
+    }
+    return (my_revstr(result));
 }

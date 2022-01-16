@@ -8,9 +8,6 @@
 #ifndef MY_STRINGS_H_
     #define MY_STRINGS_H_
 
-// get length of null terminated char **
-int my_arraylen(char **);
-
 // char alloc and set all to \0
 char *my_calloc(int);
 
