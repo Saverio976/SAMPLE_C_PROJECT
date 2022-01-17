@@ -7,13 +7,17 @@
 
 # ----------------------------------------------------------------------------
 # TARGET
-NAME		=	ttt
+ifndef
+NAME		=	$NAME
+endif
 # ----------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------
 # COLOUR
-CYAN		=	'\033[0;36m'
-GREEN 		= 	'\033[0;32m'
+CYAN		=	'\033[1;36m'
+BLUE		=	'\033[1;34m'
+GREEN 		= 	'\033[1;32m'
+RED		=	'\033[1;31m'
 
 RESET		=	'\033[0m'
 # ----------------------------------------------------------------------------
@@ -28,7 +32,6 @@ CURR_RULE	=	all
 SRCDIR		:=	src/
 
 SRC		:=	main.c
-
 SRC		:=	$(addprefix $(SRCDIR),$(SRC))
 
 OBJ		:=	$(SRC:%.c=%.o)
@@ -47,10 +50,9 @@ TNAME		:=	bin_test
 
 TSRCDIR		:=	tests/
 
-TSRC		:=	$(filter-out $(SRCDIR)main.c,$(SRC))	\
-			test_basic.c
-
+TSRC		:=	test_basic.c
 TSRC		:=	$(addprefix $(TSRCDIR),$(TSRC))
+TSRC		:= 	$(filter-out $(SRCDIR)main.c,$(SRC))
 
 TOBJ		:=	$(TSRC:%.c=%.o)
 # ----------------------------------------------------------------------------
@@ -63,57 +65,93 @@ CR_TEST_FLAGS	=	-lcriterion --coverage
 # ----------------------------------------------------------------------------
 
 %.o: %.c
-	@$(CC) $(CFLAGS) $^ -c -o $@
-	@echo -e $(CYAN)'compil : $(notdir $^) -> $(notdir $@)'$(RESET)
+	@$(CC) $(CFLAGS) $^ -c -o $@ && \
+	echo -e $(BLUE)'compil : $(notdir $^) -> $(notdir $@)'$(RESET) || \
+	echo -e $(RED)'[nop] file: $(notdir $^)'$(RESET) && exit 1
 
-.PHONY: all
-all:		$(LIB_TARGET) $(NAME)
+# ----------------------------------------------------------------------------
+# Make the $NAME
+.PHONY: 	all
+all:		CURR_RULE = all
+all:		init $(LIB_TARGET)
+	@$(MAKE) $(NAME) -s && \
+	echo -e $(GREEN)'-> [finished]: $(NAME): all'$(RESET) || \
+	echo -e $(RED)'[nop] $(CURR_RULE)' && exit 1
 
-$(NAME):	$(OBJ)
-	@$(CC) $(OBJ) $(MAIN_OBJ) -o $(NAME) $(LDFLAGS) $(CFLAGS)
-	@echo -e $(GREEN)'-> [finished]: $(TARGET): make $(TARGET)'$(RESET)
+$(NAME):	CURR_RULE = $(NAME)
+$(NAME): 	init $(OBJ)
+	@$(CC) $(OBJ) $(MAIN_OBJ) -o $(NAME) $(LDFLAGS) $(CFLAGS) && \
+	echo -e $(GREEN)'-> [finished]: $(NAME): $(NAME)'$(RESET)
+	echo -e $(RED)'[nop] $(CURR_RULE)'$(RESET) && exit 1
 
 $(LIB_TARGET):
-	@$(MAKE) -C $(dir $(LIB_TARGET)) all -s
+	@$(MAKE) -C $(dir $(LIB_TARGET)) all -s && \
+	echo -e $(GREEN)'-> [finished]: $(NAME): $(LIB_TARGET)'$(RESET) || \
+	echo -e $(RED)'[nop] $(CURR_RULE)'$(RESET) && exit 1
+# ----------------------------------------------------------------------------
 
-.PHONY: clean
+# ----------------------------------------------------------------------------
+# Mr. clean
+.PHONY: 	clean
 clean:
 	@$(RM) $(OBJ) $(TOBJ)
 	@$(RM) vgcore.*
 	@$(RM) $(TOBJ:.o=.gcno) $(TOBJ:.o=.gcda)
 
-.PHONY: fclean
-fclean:	clean
+.PHONY: 	fclean
+fclean:		CURR_RULE = fclean
+fclean:		init clean
 	@$(MAKE) -C $(dir $(LIB_TARGET)) fclean -s
-	@rm -f $(NAME) $(TNAME)
-	@echo -e $(GREEN)'-> [finished]: $(TARGET): make fclean'$(RESET)
+	@$(RM) $(NAME) $(TNAME)
+	@echo -e $(GREEN)'-> [finished]: $(NAME): $(CURR_RULE)'$(RESET)
+# ----------------------------------------------------------------------------
 
-.PHONY: re
-re:	fclean all
+# ----------------------------------------------------------------------------
+# Re
+.PHONY: 	re
+re:		CURR_RULE = re
+re:		init
+	@$(MAKE) fclean -s
+	@$(MAKE) all -s
+	@echo -e $(GREEN)'-> [finished]: $(NAME): $(CURR_RULE)'$(RESET)
+# ----------------------------------------------------------------------------
 
+# ----------------------------------------------------------------------------
+# Test
 .PHONY: tests_run
 tests_run: cr_tests_run
 
 .PHONY: cr_tests_run
 cr_tests_run: CFLAGS += $(CR_TEST_FLAGS)
-cr_tests_run: fclean $(LIB_TARGET) $(TEST_OBJ)
+cr_tests_run: fclean $(LIB_TARGET) $(TNAME)
 	@$(CC) $(TEST_OBJ) -o $(TNAME) $(LDFLAGS) $(CR_TEST_FLAGS)
-	@./$(TARGET_TEST)
+	@./$(TNAME)
 	@gcovr --exclude tests/
 	@gcovr --exclude tests/ --branch
 
 .PHONY: fn_tests_run
-fn_tests_run: CFLAGS
-fn_tests_run: re
-	@./tests/fn_tests.sh ./$(TARGET_TEST)
+fn_tests_run: fclean $(TNAME)
+	@./tests/fn_tests.sh ./$(TNAME)
+# ----------------------------------------------------------------------------
 
+# ----------------------------------------------------------------------------
+# Prety Print
+.PHONY: init
+init:
+	@echo -e $(CYAN)'-> [starting]: $(NAME): make $(CURR_RULE)'$(RESET)
 # ----------------------------------------------------------------------------
 .PHONY: init_repo
 init_repo:
+ifeq ($(NAME), $NAME)
+	@echo -e $(RED)'Make -C .git/ init_repo NAME=name_of_proj'$(RESET)
+	@exit 1
+endif
 	mv include/ ..
 	mv lib/ ..
 	mv src/ ..
 	mv tests/ ..
-	mv Makefile ..
+	sed -n '/init_repo/q;p' Makefile > ../Makefile
+	rm -f Makefile
 	cp ~/.src/SAMPLE_C_PROJECT/.gitignore ..
 	cp -r ~/.src/SAMPLE_C_PROJECT/.github ..
+	find .. -type f -exec sed -i "s/\$$NAME/$(NAME)/g" {} \;

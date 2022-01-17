@@ -8,6 +8,7 @@
 #ifndef MY_MACRO_H_
     #define MY_MACRO_H_
 
+// get the absolute value
     #define ABSOL(x) ((x) < 0) ? ((x) * -1) : (x)
 
 #endif
