@@ -17,7 +17,7 @@ endif
 CYAN		=	'\033[1;36m'
 BLUE		=	'\033[1;34m'
 GREEN 		= 	'\033[1;32m'
-RED		=	'\033[1;31m'
+RED			=	'\033[1;31m'
 
 RESET		=	'\033[0m'
 # ----------------------------------------------------------------------------
@@ -31,10 +31,10 @@ CURR_RULE	=	all
 # SRC
 SRCDIR		:=	src/
 
-SRC		:=	main.c
-SRC		:=	$(addprefix $(SRCDIR),$(SRC))
+SRC			:=	main.c
+SRC			:=	$(addprefix $(SRCDIR),$(SRC))
 
-OBJ		:=	$(SRC:%.c=%.o)
+OBJ			:=	$(SRC:%.c=%.o)
 # ----------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------
@@ -65,29 +65,24 @@ CR_TEST_FLAGS	=	-lcriterion --coverage
 # ----------------------------------------------------------------------------
 
 %.o: %.c
-	@$(CC) $(CFLAGS) $^ -c -o $@ && \
-	echo -e $(BLUE)'compil : $(notdir $^) -> $(notdir $@)'$(RESET) || \
-	echo -e $(RED)'[nop] file: $(notdir $^)'$(RESET) && exit 1
+	@$(CC) $(CFLAGS) $^ -c -o $@
+	@echo -e $(BLUE)'compil : $(notdir $^) -> $(notdir $@)'$(RESET)
 
 # ----------------------------------------------------------------------------
 # Make the $NAME
 .PHONY: 	all
 all:		CURR_RULE = all
 all:		init $(LIB_TARGET)
-	@$(MAKE) $(NAME) -s && \
-	echo -e $(GREEN)'-> [finished]: $(NAME): all'$(RESET) || \
-	echo -e $(RED)'[nop] $(CURR_RULE)' && exit 1
+	@$(MAKE) $(NAME)
+	@echo -e $(GREEN)'-> [finished]: $(NAME): all'$(RESET)
 
 $(NAME):	CURR_RULE = $(NAME)
 $(NAME): 	init $(OBJ)
-	@$(CC) $(OBJ) $(MAIN_OBJ) -o $(NAME) $(LDFLAGS) $(CFLAGS) && \
-	echo -e $(GREEN)'-> [finished]: $(NAME): $(NAME)'$(RESET)
-	echo -e $(RED)'[nop] $(CURR_RULE)'$(RESET) && exit 1
+	@$(CC) $(OBJ) $(MAIN_OBJ) -o $(NAME) $(LDFLAGS) $(CFLAGS)
+	@echo -e $(GREEN)'-> [finished]: $(NAME): $(NAME)'$(RESET)
 
 $(LIB_TARGET):
-	@$(MAKE) -C $(dir $(LIB_TARGET)) all -s && \
-	echo -e $(GREEN)'-> [finished]: $(NAME): $(LIB_TARGET)'$(RESET) || \
-	echo -e $(RED)'[nop] $(CURR_RULE)'$(RESET) && exit 1
+	@$(MAKE) -C $(dir $(LIB_TARGET))
 # ----------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------

@@ -49,6 +49,11 @@ OBJ		=	$(SRC:%.c=%.o)
 CFLAGS		=	-I../include
 # ----------------------------------------------------------------------------
 
+# ----------------------------------------------------------------------------
+# DEPENDANCES
+LIBS_DEP	=
+# ----------------------------------------------------------------------------
+
 %.o:	%.c
 	@$(CC) $(CFLAGS) $^ -c -o $@
 	@echo -e $(BLUE)'compil : $(notdir $^) -> $(notdir $@)'$(RESET)
@@ -57,29 +62,31 @@ all: 	CURR_RULE = all
 all: 	init
 	@$(MAKE) $(NAME) -s
 
-
 $(NAME): CURR_RULE = $(NAME)
-$(NAME): init $(OBJ)
+$(NAME): init $(LIBS_DEP) $(OBJ)
 	@ar rc $(NAME) $(OBJ)
-	@echo -e $(GREEN)[finished]: $(NAME): $(CURR_RULE)$(RESET)
+	@echo -e $(GREEN)'[finished]: $(NAME): $(CURR_RULE)'$(RESET)
+
+$(LIBS_DEP):
+	$(foreach LIB,$(LIBS_DEP),$(MAKE) -C $(dir $(LIB));)
 
 clean:	CURR_RULE = clean
 clean:	init
 	@$(RM) $(OBJ)
-	@echo -e $(GREEN)[finished]: $(NAME): $(CURR_RULE)$(RESET)
+	@echo -e $(GREEN)'[finished]: $(NAME): $(CURR_RULE)'$(RESET)
 
 fclean:	CURR_RULE = fclean
 fclean:	init
 	@$(MAKE) clean -s
 	@$(RM) $(NAME)
-	@echo -e $(GREEN)[finished]: $(NAME): $(CURR_RULE)$(RESET)
+	@echo -e $(GREEN)'[finished]: $(NAME): $(CURR_RULE)'$(RESET)
 
 re:	CURR_RULE = re
 re:	init
 	@$(MAKE) fclean -s
 	@$(MAKE) all -s
-	@echo -e $(GREEN)[finished]: $(NAME): $(CURR_RULE)$(RESET)
+	@echo -e $(GREEN)'[finished]: $(NAME): $(CURR_RULE)'$(RESET)
 
 .PHONY: init
 init:
-	@echo -e $(CYAN)[starting]: $(NAME): $(CURR_RULE)$(RESET)
+	@echo -e $(CYAN)'[starting]: $(NAME): $(CURR_RULE)'$(RESET)
