@@ -52,7 +52,7 @@ TSRCDIR		:=	tests/
 
 TSRC		:=	test_basic.c
 TSRC		:=	$(addprefix $(TSRCDIR),$(TSRC))
-TSRC		:= 	$(filter-out $(SRCDIR)main.c,$(SRC))
+TSRC		:= 	$(filter-out $(SRCDIR)main.c,$(SRC)) $(TSRC)
 
 TOBJ		:=	$(TSRC:%.c=%.o)
 # ----------------------------------------------------------------------------
@@ -61,7 +61,11 @@ TOBJ		:=	$(TSRC:%.c=%.o)
 # FLAGS
 CFLAGS		= 	-Iinclude/ -Ilib/include/ -Wall -Wextra -Wpedantic
 
-CR_TEST_FLAGS	=	-lcriterion --coverage
+TFLAGS		=	-fprofile-arcs -ftest-coverage
+
+CR_TEST_LDFLAGS	=	-lcriterion -lgcov
+
+FN_TEST_LDFLAGS	=	-lgcov
 # ----------------------------------------------------------------------------
 
 %.o: %.c
@@ -117,15 +121,19 @@ re:		init
 tests_run: cr_tests_run
 
 .PHONY: cr_tests_run
-cr_tests_run: CFLAGS += $(CR_TEST_FLAGS)
-cr_tests_run: fclean $(LIB_TARGET) $(TNAME)
-	@$(CC) $(TEST_OBJ) -o $(TNAME) $(LDFLAGS) $(CR_TEST_FLAGS)
+cr_tests_run: LDFLAGS += $(CR_TEST_LDFLAGS)
+cr_tests_run: CFLAGS += $(TFLAGS)
+cr_tests_run: fclean $(LIB_TARGET) $(TOBJ)
+	@$(CC) $(TOBJ) -o $(TNAME) $(LDFLAGS) $(LDFLAGS) $(CFLAGS)
 	@./$(TNAME)
 	@gcovr --exclude tests/
 	@gcovr --exclude tests/ --branch
 
 .PHONY: fn_tests_run
-fn_tests_run: fclean $(TNAME)
+fn_tests_run: LDFLAGS += $(FN_TEST_LDFLAGS)
+fn_tests_run: CFLAGS += $(TFLAGS)
+fn_tests_run: fclean $(LIB_TARGET) $(OBJ)
+	@$(CC) $(OBJ) -o $(TNAME) $(LDFLAGS) $(CFLAGS)
 	@./tests/fn_tests.sh ./$(TNAME)
 # ----------------------------------------------------------------------------
 
