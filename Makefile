@@ -141,6 +141,9 @@ ifeq ($(NAME), $NAME)
 	@echo -e $(RED)'Make -C .git/ init_repo NAME=name_of_proj'$(RESET)
 	@exit 1
 endif
+	rm -rf docs/
+	rm -rf assets/
+	rm -rf Doxyfile
 	mv include/ ..
 	mv lib/ ..
 	mv src/ ..
