@@ -1,13 +1,13 @@
 ##
 ## EPITECH PROJECT, 2022
-## LIBPUTS
+## LIBFILE
 ## File description:
-## make the puts lib
+## make the file lib
 ##
 
 # ----------------------------------------------------------------------------
 # TARGET
-NAME		=	libputs.a
+NAME		=	libfs.a
 # ----------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------
@@ -26,26 +26,11 @@ CURR_RULE	=	all
 
 SRCDIR		=	src/
 
-SRCDIRDEP	=	myprintf_dependencies/
-
 # ----------------------------------------------------------------------------
 # SRC
-SRC		:=	print_b.c		\
-			print_c.c		\
-			print_d.c		\
-			print_mod.c		\
-			print_o.c		\
-			print_s.c		\
-			print_u.c		\
-			print_x.c
-SRC		:=	$(addprefix $(SRCDIRDEP),$(SRC))
-
-SRC		+=	my_printf.c 		\
-			my_putchar.c		\
-			my_putnbr.c		\
-			my_putnbr_base.c	\
-			my_putstr.c		\
-			my_putunbr_base.c
+SRC		:=	fs_get_content.c 		\
+			fs_get_size.c			\
+			fs_open_ronly.c
 SRC		:=	$(addprefix $(SRCDIR),$(SRC))
 
 OBJ		=	$(SRC:%.c=%.o)
@@ -53,13 +38,12 @@ OBJ		=	$(SRC:%.c=%.o)
 
 # ----------------------------------------------------------------------------
 # FLAGS
-CFLAGS		:=	-I../include -I./src/myprintf_dependencies/
+CFLAGS		+=	-I../include
 # ----------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------
 # DEPENDANCES
-LIBS_DEP	=	../strings/libstr.a \
-				../conversions/libconv.a
+LIBS_DEP	=	../libstr/libstr.a
 # ----------------------------------------------------------------------------
 
 %.o:	%.c
@@ -86,7 +70,7 @@ clean:	init
 fclean:	CURR_RULE = fclean
 fclean:	init
 	@$(MAKE) clean -s
-	@$(RM) $(NAME)
+	@$(RM) $(NAME) $(NAME)
 	@echo -e $(GREEN)'[finished]: $(NAME): $(CURR_RULE)'$(RESET)
 
 re:	CURR_RULE = re
