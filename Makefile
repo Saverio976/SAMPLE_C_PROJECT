@@ -144,12 +144,13 @@ endif
 	rm -rf docs/
 	rm -rf assets/
 	rm -rf Doxyfile
+	rm -rf README.md
 	mv include/ ..
 	mv lib/ ..
 	mv src/ ..
 	mv tests/ ..
 	sed -n '/init_repo/q;p' Makefile > ../Makefile
 	rm -f Makefile
-	cp ~/.src/SAMPLE_C_PROJECT/.gitignore ..
-	cp -r ~/.src/SAMPLE_C_PROJECT/.github ..
+	mv gitignore ../.gitignore
+	mv github ../.github
 	find .. -type f -exec sed -i "s/\$$NAME/$(NAME)/g" {} \;
