@@ -30,18 +30,19 @@ SRCDIR		=	src/
 
 # ----------------------------------------------------------------------------
 # SRC
-SRC		:=	my_calloc.c 		\
-			my_revstr.c		\
-			my_strcat.c		\
-			my_strcmp.c		\
-			my_strcpy.c		\
-			my_strdup.c		\
-			my_strinclude.c		\
-			my_strlen.c		\
-			my_strstartswith.c
+SRC			:=	my_calloc.c 		\
+				my_revstr.c			\
+				my_strcat.c			\
+				my_strcmp.c			\
+				my_strcontainc.c	\
+				my_strcontains.c	\
+				my_strcpy.c			\
+				my_strdup.c			\
+				my_strlen.c			\
+				my_strstartswith.c
 SRC 		:=	$(addprefix $(SRCDIR),$(SRC))
 
-OBJ		=	$(SRC:%.c=%.o)
+OBJ			=	$(SRC:%.c=%.o)
 # ----------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------

@@ -28,14 +28,27 @@ static char *dup_and_cat(char *dest, char c, int *cap)
     return (dest);
 }
 
+/**
+ * @brief write the unsigned nb on stdout if base is not null
+ *
+ * @param nb
+ * @param base
+ *
+ * @return the number of char wrote
+ */
 int my_putunbr_base(unsigned int nb, char const *base)
 {
     int i = 0;
     int max_cap = 12;
-    char *result = my_calloc(max_cap);
+    char *result = NULL;
 
-    if (nb == 0 && result != NULL)
+    if (base == NULL) {
+        return (0);
+    }
+    result = my_calloc(max_cap);
+    if (nb == 0 && result != NULL) {
         result[i++] = '0';
+    }
     for (; nb != 0 && result != NULL; i++) {
         result = dup_and_cat(result, base[nb % my_strlen(base)], &max_cap);
         nb /= my_strlen(base);

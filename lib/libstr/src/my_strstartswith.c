@@ -7,14 +7,25 @@
 
 #include "my_strings.h"
 
-int my_strstartswith(char const *str, char const *s)
+/**
+ * @brief check if str start with substr
+ *
+ * @param str
+ * @param substr
+ *
+ * @return 1 if str start with substr; 0 otherwise
+ */
+int my_strstartswith(char const *str, char const *substr)
 {
     int i = 0;
-    int size = my_strlen(s);
+    int size = my_strlen(substr);
 
-    while (str[i] != '\0' && s[i] != '\0' && str[i] == s[i])
+    while (str[i] != '\0' && substr[i] != '\0' && str[i] == substr[i]) {
         i++;
-    if (i == size)
+    }
+    if (i == size) {
         return (1);
-    return (0);
+    } else {
+        return (0);
+    }
 }

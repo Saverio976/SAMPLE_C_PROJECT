@@ -10,22 +10,61 @@
 
     #include <stdarg.h>
 
-// put format (_printf like)
-int my_printf(char const *, ...);
+/**
+ * @brief reproduce the _printf
+ *
+ * @param format
+ * @param ...
+ *
+ * @return number of char wrote
+ */
+int my_printf(char const *format, ...);
 
-// put char in stdout
-int my_putchar(char);
+/**
+ * @brief write c on stdout
+ *
+ * @param c
+ *
+ * @return number of char wrote
+ */
+int my_putchar(char c);
 
-// put int in stdout
-int my_putnbr(int);
+/**
+ * @brief write nb on stdout
+ *
+ * @param nb
+ *
+ * @return number of char wrote
+ */
+int my_putnbr(int nb);
 
-// put int with base symbols in stdout
-int my_putnbr_base(int nb, char const *);
+/**
+ * @brief write nb on base base in stdout if base is not null
+ *
+ * @param nb
+ * @param base
+ *
+ * @return number of char wrote
+ */
+int my_putnbr_base(int nb, char const *base);
 
-// put str in stdout
-int my_putstr(char const *);
+/**
+ * @brief write the \0 terminated str if str is not null
+ *
+ * @param str
+ *
+ * @return the number of char wrote
+ */
+int my_putstr(char const *str);
 
-// put unsigned int with base symbols in stdout
-int my_putunbr_base(unsigned int, char const *);
+/**
+ * @brief write the unsigned nb on stdout if base is not null
+ *
+ * @param nb
+ * @param base
+ *
+ * @return the number of char wrote
+ */
+int my_putunbr_base(unsigned int nb, char const *base);
 
 #endif

@@ -8,13 +8,31 @@
 #ifndef MY_FS_H_
     #define MY_FS_H_
 
-// get content of file
-char *fs_get_content(char const *);
+/**
+ * @brief get the entire content of file path (if readable)
+ *
+ * @param path
+ *
+ * @return null if path is not readable; otherwise the content
+ */
+char *fs_get_content(char const *path);
 
-// get size of file
-int fs_get_size(char const *);
+/**
+ * @brief get size of the content of filepath (if stat can)
+ *
+ * @param path
+ *
+ * @return -1 if stat cant get size; the size else
+ */
+int fs_get_size(char const *path);
 
-// open read only file
-int fs_open_ronly(char const *);
+/**
+ * @brief open file path with read only
+ *
+ * @param path
+ *
+ * @return -1 if cant open; the file descriptor else
+ */
+int fs_open_ronly(char const *path);
 
 #endif

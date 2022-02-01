@@ -11,4 +11,10 @@
 // get the absolute value
     #define ABSOL(x) ((x) < 0) ? ((x) * -1) : (x)
 
+// get the max
+    #define MAX(x, y) ((x > y) ? (x) : (y))
+
+// get the min
+    #define MIN(x, y) ((x < y) ? (x) : (y))
+
 #endif

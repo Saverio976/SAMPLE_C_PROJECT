@@ -7,6 +7,13 @@
 
 #include "my_puts.h"
 
+/**
+ * @brief write nb on stdout
+ *
+ * @param nb
+ *
+ * @return number of char wrote
+ */
 int my_putnbr(int nb)
 {
     char const base[] = "0123456789";

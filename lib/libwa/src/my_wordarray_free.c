@@ -7,6 +7,11 @@
 
 #include <stdlib.h>
 
+/**
+ * @brief free a word array null terminated
+ *
+ * @param arr
+ */
 void my_wordarray_free(char **arr)
 {
     if (arr == NULL) {

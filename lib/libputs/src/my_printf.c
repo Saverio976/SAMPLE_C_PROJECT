@@ -39,6 +39,14 @@ static int print_specifier(va_list ap, char const *c)
     return (ret);
 }
 
+/**
+ * @brief reproduce the _printf
+ *
+ * @param format
+ * @param ...
+ *
+ * @return number of char wrote
+ */
 int my_printf(char const *format, ...)
 {
     va_list ap;
@@ -46,7 +54,7 @@ int my_printf(char const *format, ...)
     int tmp = 0;
 
     va_start(ap, format);
-    for (int i = 0; format[i] != '\0'; i++) {
+    for (int i = 0; format != NULL && format[i] != '\0'; i++) {
         tmp = print_specifier(ap, format + i);
         if (tmp != 0) {
             ret += tmp;

@@ -35,6 +35,15 @@ static void do_zero_special_case(int nb, char *result)
     }
 }
 
+/**
+ * @brief int to str in base base if base is not null
+ *
+ * @param nb
+ * @param base
+ * @param is_error
+ *
+ * @return *is_error set to 1 if error; otherwise the str
+ */
 char *my_itoa_base_err(int nb, char const *base, int *is_error)
 {
     int i = 0;
@@ -44,14 +53,14 @@ char *my_itoa_base_err(int nb, char const *base, int *is_error)
 
     nb = ABSOL(nb);
     do_zero_special_case(nb, result);
-    for (; nb != 0 && result != NULL; i++) {
+    for (; nb != 0 && base != NULL && result != NULL; i++) {
         result = dup_and_cat(result, base[nb % my_strlen(base)], &max_cap);
         nb /= my_strlen(base);
     }
-    if (is_neg && result != NULL) {
+    if (is_neg && result != NULL && base != NULL) {
         result[i] = '-';
     }
-    if (result == NULL) {
+    if (result == NULL || base == NULL) {
         *is_error = 1;
     }
     return (my_revstr(result));
