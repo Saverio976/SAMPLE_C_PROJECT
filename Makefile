@@ -73,7 +73,7 @@ CR_TEST_FLAGS	=	-lcriterion --coverage
 .PHONY: 	all
 all:		CURR_RULE = all
 all:		init $(LIB_TARGET)
-	@$(MAKE) $(NAME)
+	@$(MAKE) $(NAME) -s
 	@echo -e $(GREEN)'-> [finished]: $(NAME): all'$(RESET)
 
 $(NAME):	CURR_RULE = $(NAME)
@@ -82,7 +82,7 @@ $(NAME): 	init $(OBJ)
 	@echo -e $(GREEN)'-> [finished]: $(NAME): $(NAME)'$(RESET)
 
 $(LIB_TARGET):
-	@$(MAKE) -C $(dir $(LIB_TARGET))
+	@$(MAKE) -s -C $(dir $(LIB_TARGET))
 # ----------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------

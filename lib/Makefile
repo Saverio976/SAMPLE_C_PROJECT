@@ -7,7 +7,7 @@
 
 # ----------------------------------------------------------------------------
 # TARGET
-NAME		=	libmy.a
+NAME		:=	libmy.a
 # ----------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------
@@ -25,46 +25,36 @@ CURR_RULE	=	all
 
 # ----------------------------------------------------------------------------
 # SUBMODULE LIB
-LCONVERSION	:=	conversions/libconv.a
+LCONV		:=	libconv/libconv.a
 
-LFS			:=	fs/libfs.a
+LFS			:=	libfs/libfs.a
 
-LPUTS		:=	puts/libputs.a
+LPUTS		:=	libputs/libputs.a
 
-LSTRINGS	:=	strings/libstr.a
+LSTR		:=	libstr/libstr.a
 
-LWORDARRAY	:=	wordarray/libwa.a
+LWA			:=	libwa/libwa.a
+
+ALL_SUB_LIB	:=	$(LCONV) $(LFS) $(LPUTS) $(LSTR) $(LWA)
 # ----------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------
 # Make big libmy
 .PHONY: all
 all:	CURR_RULE = all
-all:	init $(LFS) $(LPUTS) $(LSTRINGS) $(LWORDARRAY) $(LCONVERSION) $(NAME)
-	@echo -e $(GREEN)' -> [finished]: $(NAME): make $(CURR_RULE)'$(RESET)
+all:	init $(NAME)
+	@echo -e $(GREEN)' -> [finished]: $(NAME): make all'$(RESET)
 
-$(NAME):
-	ar rcT $(NAME) $(LFS) $(LPUTS) $(LSTRINGS) $(LWORDARRAY) \
-		$(LCONVERSION)
+$(NAME): $(ALL_SUB_LIB)
+	ar rcT $(NAME) $(ALL_SUB_LIB)
 	ranlib $(NAME)
 # ----------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------
 # Call Make of sub-lib
-$(LFS):
-	$(MAKE) -C $(dir $(LFS)) all -s
 
-$(LPUTS):
-	$(MAKE) -C $(dir $(LPUTS)) all -s
-
-$(LSTRINGS):
-	$(MAKE) -C $(dir $(LSTRINGS)) all -s
-
-$(LWORDARRAY):
-	$(MAKE) -C $(dir $(LWORDARRAY)) all -s
-
-$(LCONVERSION):
-	$(MAKE) -C $(dir $(LCONVERSION)) all -s
+%.a:
+	@$(MAKE) -C $(dir $@) $(CURR_RULE) -s
 # ----------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------
@@ -77,11 +67,7 @@ clean:	init
 fclean: CURR_RULE = fclean
 fclean:	init
 	@$(MAKE) clean -s
-	@$(MAKE) -C $(dir $(LFS)) fclean -s
-	@$(MAKE) -C $(dir $(LPUTS)) fclean -s
-	@$(MAKE) -C $(dir $(LSTRINGS)) fclean -s
-	@$(MAKE) -C $(dir $(LWORDARRAY)) fclean -s
-	@$(MAKE) -C $(dir $(LCONVERSION)) fclean -s
+	@$(foreach LIB,$(ALL_SUB_LIB),$(MAKE) -s -C $(dir $(LIB)) fclean;)
 	@$(RM) $(NAME)
 	@echo -e $(GREEN)' -> [finished]: $(NAME): make $(CURR_RULE)'$(RESET)
 # ----------------------------------------------------------------------------
