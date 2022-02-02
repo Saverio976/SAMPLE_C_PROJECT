@@ -94,12 +94,11 @@ GG you have a preconfigured project that look like this:
 ├── Makefile
 ├── src
 │   └── main.c
-├── tests
-│   ├── fn_tests.sh
-│   └── test_basic.c
-└── tree.txt
+└── tests
+    ├── fn_tests.sh
+    └── test_basic.c
 
-16 directories, 58 files
+16 directories, 57 files
 ```
 
 ## lib docs
