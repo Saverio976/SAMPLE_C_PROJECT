@@ -94,8 +94,8 @@ $(LIB_TARGET):
 .PHONY: 	clean
 clean:
 	@$(RM) $(OBJ) $(TOBJ)
+	@$(RM) $(TOBJ:.o=.gcno) $(TOBJ:.o=.gcda) $(OBJ:.o=.gcno) $(OBJ:.o=.gcda)
 	@$(RM) vgcore.*
-	@$(RM) $(TOBJ:.o=.gcno) $(TOBJ:.o=.gcda)
 
 .PHONY: 	fclean
 fclean:		CURR_RULE = fclean
