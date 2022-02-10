@@ -17,4 +17,12 @@
 // get the min
     #define MIN(x, y) ((x < y) ? (x) : (y))
 
+// define bool
+    #define BOOL int
+    #define TRUE 1
+    #define FALSE 0
+
+// redefine null
+    #define NULL ((void *) 0)
+
 #endif
