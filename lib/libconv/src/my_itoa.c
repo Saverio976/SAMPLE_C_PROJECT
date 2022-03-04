@@ -16,5 +16,5 @@ char *my_itoa(int nb)
 {
     int is_error = 0;
 
-    return (my_itoa_err(nb, &is_error));
+    return (my_igetstr(nb, &is_error));
 }

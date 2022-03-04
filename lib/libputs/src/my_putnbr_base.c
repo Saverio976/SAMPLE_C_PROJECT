@@ -23,7 +23,7 @@ int my_putnbr_base(int nb, char const *base)
     if (base == NULL) {
         return (0);
     }
-    result = my_itoa_base(nb, base);
+    result = my_igetstr_base(nb, base);
     i = my_putstr(result);
     free(result);
     return (i);

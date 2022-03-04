@@ -42,7 +42,7 @@ static void do_zero_special_case(int nb, char *result)
 ** @param is_error
 ** @return *is_error set to 1 if error; otherwise the str
 **/
-char *my_itoa_base_err(int nb, char const *base, int *is_error)
+char *my_igetstr_base_err(int nb, char const *base, int *is_error)
 {
     int i = 0;
     int max_cap = 12;

@@ -16,5 +16,5 @@ int my_atoi(char const *str)
 {
     int is_error = 0;
 
-    return (my_atoi_err(str, &is_error));
+    return (my_getnbri(str, &is_error));
 }

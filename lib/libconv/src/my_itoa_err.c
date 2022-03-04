@@ -15,7 +15,7 @@ static const char BASE_TEN[] = "0123456789";
 ** @param is_error
 ** @return null if there is error; else the str
 **/
-char *my_itoa_err(int nb, int *is_error)
+char *my_igetstr_err(int nb, int *is_error)
 {
-    return (my_itoa_base_err(nb, BASE_TEN, is_error));
+    return (my_igetstr_base_err(nb, BASE_TEN, is_error));
 }

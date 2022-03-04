@@ -14,12 +14,12 @@
 ** @param base
 ** @return null if error; else the str
 **/
-char *my_itoa_base(int nb, char const *base)
+char *my_igetstr_base(int nb, char const *base)
 {
     int is_error = 0;
 
     if (base == NULL) {
         return (NULL);
     }
-    return (my_itoa_base_err(nb, base, &is_error));
+    return (my_igetstr_base_err(nb, base, &is_error));
 }

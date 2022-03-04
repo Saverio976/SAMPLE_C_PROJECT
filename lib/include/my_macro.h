@@ -23,6 +23,8 @@
     #define FALSE 0
 
 // redefine null
-    #define NULL ((void *) 0)
+    #ifndef NULL
+        #define NULL ((void *) 0)
+    #endif
 
 #endif

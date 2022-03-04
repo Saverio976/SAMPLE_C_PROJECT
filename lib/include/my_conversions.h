@@ -16,12 +16,12 @@
 int my_atoi(char const *str);
 
 /**
-** @brief get the number in str
+** @brief get the number in str to int
 ** @param str
 ** @param is_error
 ** @return 0 if there is an error and *is_error set to 1; the number else
 **/
-int my_atoi_err(char const *str, int *is_error);
+int my_getnbri(char const *str, int *is_error);
 
 /**
 ** @brief int to str in base 10
@@ -31,12 +31,20 @@ int my_atoi_err(char const *str, int *is_error);
 char *my_itoa(int nb);
 
 /**
+** @brief int to str in base 10
+** @param nb
+** @param is_error
+** @return null if there is error; else the str
+**/
+char *my_igetstr(int nb, int *is_error);
+
+/**
 ** @brief int to str base base if base not null
 ** @param nb
 ** @param base
 ** @return null if error; else the str
 **/
-char *my_itoa_base(int nb, char const *base);
+char *my_igetstr_base(int nb, char const *base);
 
 /**
 ** @brief int to str in base base if base is not null
@@ -45,14 +53,6 @@ char *my_itoa_base(int nb, char const *base);
 ** @param is_error
 ** @return *is_error set to 1 if error; otherwise the str
 **/
-char *my_itoa_base_err(int nb, char const *base, int *is_error);
-
-/**
-** @brief int to str in base 10
-** @param nb
-** @param is_error
-** @return null if there is error; else the str
-**/
-char *my_itoa_err(int nb, int *is_error);
+char *my_igetstr_base_err(int nb, char const *base, int *is_error);
 
 #endif
