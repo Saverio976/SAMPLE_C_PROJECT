@@ -1,12 +1,12 @@
 var searchData=
 [
   ['my_5fatoi_0',['my_atoi',['../d0/d71/my__atoi_8c.html#ad4f9e58ccd755707563a0e84100c2340',1,'my_atoi.c']]],
-  ['my_5fatoi_5ferr_1',['my_atoi_err',['../df/d9f/my__atoi__err_8c.html#a30ab44b8ebdae9fb70b8218c272d83a5',1,'my_atoi_err.c']]],
-  ['my_5fcalloc_2',['my_calloc',['../df/dac/my__calloc_8c.html#ab74a4a2085999187209c09ff5fa084d3',1,'my_calloc.c']]],
-  ['my_5fitoa_3',['my_itoa',['../d3/dec/my__itoa_8c.html#a4b3d972354ba72db29fb080cc1ede333',1,'my_itoa.c']]],
-  ['my_5fitoa_5fbase_4',['my_itoa_base',['../db/df6/my__itoa__base_8c.html#a4207d38ac53a69966f469d7c2fcc6efa',1,'my_itoa_base.c']]],
-  ['my_5fitoa_5fbase_5ferr_5',['my_itoa_base_err',['../d3/d55/my__itoa__base__err_8c.html#a6123267281b22fda19df78c3ab199485',1,'my_itoa_base_err.c']]],
-  ['my_5fitoa_5ferr_6',['my_itoa_err',['../d3/d8e/my__itoa__err_8c.html#aa6e749ddc1aab406fac3ad83e3218cb2',1,'my_itoa_err.c']]],
+  ['my_5fcalloc_1',['my_calloc',['../df/dac/my__calloc_8c.html#ab74a4a2085999187209c09ff5fa084d3',1,'my_calloc.c']]],
+  ['my_5fgetnbri_2',['my_getnbri',['../df/d9f/my__atoi__err_8c.html#a84bf744633a310302169c0d24e0d55da',1,'my_atoi_err.c']]],
+  ['my_5figetstr_5fbase_3',['my_igetstr_base',['../db/df6/my__itoa__base_8c.html#a0380f030ff53a4e3e48b25d324d2257d',1,'my_itoa_base.c']]],
+  ['my_5figetstr_5fbase_5ferr_4',['my_igetstr_base_err',['../d3/d55/my__itoa__base__err_8c.html#ad9be362e583e387ca740449543d41bd5',1,'my_itoa_base_err.c']]],
+  ['my_5figetstr_5ferr_5',['my_igetstr_err',['../d3/d8e/my__itoa__err_8c.html#a7ed73f1f7d371030fad8a7c7d5e0f1df',1,'my_itoa_err.c']]],
+  ['my_5fitoa_6',['my_itoa',['../d3/dec/my__itoa_8c.html#a4b3d972354ba72db29fb080cc1ede333',1,'my_itoa.c']]],
   ['my_5fprintf_7',['my_printf',['../df/d5b/my__printf_8c.html#a8f5ba9f27b23bec984994e47272a968f',1,'my_printf.c']]],
   ['my_5fputchar_8',['my_putchar',['../d5/d74/my__putchar_8c.html#a34eba46b9ab0295d3daa5bf8d314ed24',1,'my_putchar.c']]],
   ['my_5fputnbr_9',['my_putnbr',['../d3/d8c/my__putnbr_8c.html#abe11475be3e899d09dd96ff87e27ea33',1,'my_putnbr.c']]],
