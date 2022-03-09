@@ -1,6 +1,9 @@
 # Sample C Project
 for epitech C projects
 
+(this repo is just for personal use, please modify or just use some pieace of code)
+(if you use it, without modification in an Epitech project, marvin can detect you as a cheater)
+
 # Installation
 ```bash
 git clone https://github.com/Saverio976/SAMPLE_C_PROJECT.git
