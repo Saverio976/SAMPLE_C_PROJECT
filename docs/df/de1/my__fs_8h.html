@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.9.3-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -17,6 +18,10 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="assets/doxygen-awesome-css/doxygen-awesome-darkmode-toggle.js"
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -102,6 +107,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a8a830e23fd5b90e1a29075ca6508448e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/de1/my__fs_8h.html#a8a830e23fd5b90e1a29075ca6508448e">fs_open_ronly</a> (char const *path)</td></tr>
 <tr class="memdesc:a8a830e23fd5b90e1a29075ca6508448e"><td class="mdescLeft">&#160;</td><td class="mdescRight">open file path with read only  <a href="../../df/de1/my__fs_8h.html#a8a830e23fd5b90e1a29075ca6508448e">More...</a><br /></td></tr>
 <tr class="separator:a8a830e23fd5b90e1a29075ca6508448e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9acb3b083dad35161d0b5874b812400e"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/de1/my__fs_8h.html#a9acb3b083dad35161d0b5874b812400e">get_filename</a> (const char *path, char delim)</td></tr>
+<tr class="memdesc:a9acb3b083dad35161d0b5874b812400e"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the filename of a filepath-like  <a href="../../df/de1/my__fs_8h.html#a9acb3b083dad35161d0b5874b812400e">More...</a><br /></td></tr>
+<tr class="separator:a9acb3b083dad35161d0b5874b812400e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a46474570364692584bd19ea977b086"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/de1/my__fs_8h.html#a7a46474570364692584bd19ea977b086">join_path</a> (char delim, int nb_path,...)</td></tr>
+<tr class="memdesc:a7a46474570364692584bd19ea977b086"><td class="mdescLeft">&#160;</td><td class="mdescRight">join path with a delim  <a href="../../df/de1/my__fs_8h.html#a7a46474570364692584bd19ea977b086">More...</a><br /></td></tr>
+<tr class="separator:a7a46474570364692584bd19ea977b086"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a282bee3640bdfb00ac1a132f8e5d451a" name="a282bee3640bdfb00ac1a132f8e5d451a"></a>
@@ -185,14 +196,110 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a9acb3b083dad35161d0b5874b812400e" name="a9acb3b083dad35161d0b5874b812400e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9acb3b083dad35161d0b5874b812400e">&#9670;&nbsp;</a></span>get_filename()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * get_filename </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>delim</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>get the filename of a filepath-like </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>the path of the filepath-like </td></tr>
+    <tr><td class="paramname">delim</td><td>delimiter using to separate folders inside the path </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>pointer to the start of the filename in the path </dd></dl>
+
+</div>
+</div>
+<a id="a7a46474570364692584bd19ea977b086" name="a7a46474570364692584bd19ea977b086"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a46474570364692584bd19ea977b086">&#9670;&nbsp;</a></span>join_path()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * join_path </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>delim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>join path with a delim </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">delim</td><td>the delimiter to use </td></tr>
+    <tr><td class="paramname">nb_path</td><td>number of path after this parameter </td></tr>
+    <tr><td class="paramname">...</td><td>paths </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the new malloced char * </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.9.3-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="../../dir_5a30104352ef4255dc24354b02eb2d20.html">include</a></li><li class="navelem"><a class="el" href="../../df/de1/my__fs_8h.html">my_fs.h</a></li>
-    <li class="footer">Generated on Tue Feb 1 2022 20:19:12 for Sample_C_project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Wed Mar 9 2022 21:55:44 for Sample_C_project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
+<script type ="text/javascript">
+    $(function() {
+        toggleButton = document.createElement('doxygen-awesome-dark-mode-toggle')
+        toggleButton.title = "Toggle Light/Dark Mode"
+        $(document).ready(function() {
+            document.getElementById("MSearchBox").parentNode.appendChild(toggleButton)
+        })
+        $(window).resize(function() {
+            document.getElementById("MSearchBox").parentNode.appendChild(toggleButton)
+        })
+    })
+</script>
 </body>
 </html>

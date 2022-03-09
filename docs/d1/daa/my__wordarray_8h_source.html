@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.9.3-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -17,6 +18,10 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="assets/doxygen-awesome-css/doxygen-awesome-darkmode-toggle.js"
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -96,36 +101,49 @@ $(document).ready(function(){initNavTree('d1/daa/my__wordarray_8h_source.html','
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef WORD_ARRAY_H_</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">    #define WORD_ARRAY_H_</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/daa/my__wordarray_8h.html#addd6e8064ccf1bc8500b6930b2f3a206">my_wordarray_free</a>(<span class="keywordtype">char</span> **arr);</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keywordtype">char</span> **<a class="code hl_function" href="../../d1/daa/my__wordarray_8h.html#a3f5acd9b0de5a1a9bf3aa55576875daf">my_wordarray_from_str</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *str, <span class="keywordtype">char</span> delim);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keywordtype">char</span> **<a class="code hl_function" href="../../d1/daa/my__wordarray_8h.html#af23df783518e97caf27a003150f31742">my_wordarray_from_wordarray</a>(<span class="keywordtype">char</span> *<span class="keyword">const</span> env[]);</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d1/daa/my__wordarray_8h.html#a444ed55bcd2699486036cc86cdb078ae">my_wordarray_get_index_startswith</a>(<span class="keywordtype">char</span> *<span class="keyword">const</span> *arr, <span class="keywordtype">char</span> <span class="keyword">const</span> *str);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="../../d1/daa/my__wordarray_8h.html#addd6e8064ccf1bc8500b6930b2f3a206">   15</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/daa/my__wordarray_8h.html#addd6e8064ccf1bc8500b6930b2f3a206">my_wordarray_free</a>(<span class="keywordtype">char</span> **arr);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../d1/daa/my__wordarray_8h.html#a3f5acd9b0de5a1a9bf3aa55576875daf">   23</a></span><span class="keywordtype">char</span> **<a class="code hl_function" href="../../d1/daa/my__wordarray_8h.html#a3f5acd9b0de5a1a9bf3aa55576875daf">my_wordarray_from_str</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *str, <span class="keywordtype">char</span> delim);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../d1/daa/my__wordarray_8h.html#af23df783518e97caf27a003150f31742">   30</a></span><span class="keywordtype">char</span> **<a class="code hl_function" href="../../d1/daa/my__wordarray_8h.html#af23df783518e97caf27a003150f31742">my_wordarray_from_wordarray</a>(<span class="keywordtype">char</span> *<span class="keyword">const</span> env[]);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../d1/daa/my__wordarray_8h.html#a444ed55bcd2699486036cc86cdb078ae">   38</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d1/daa/my__wordarray_8h.html#a444ed55bcd2699486036cc86cdb078ae">my_wordarray_get_index_startswith</a>(<span class="keywordtype">char</span> *<span class="keyword">const</span> *arr, <span class="keywordtype">char</span> <span class="keyword">const</span> *str);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../d1/daa/my__wordarray_8h.html#a1178850a2625a9744bb12a3e2cd2e304">   45</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d1/daa/my__wordarray_8h.html#a1178850a2625a9744bb12a3e2cd2e304">my_wordarray_len</a>(<span class="keywordtype">char</span> *<span class="keyword">const</span> *array);</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keywordtype">int</span> <a class="code hl_function" href="../../d1/daa/my__wordarray_8h.html#a1178850a2625a9744bb12a3e2cd2e304">my_wordarray_len</a>(<span class="keywordtype">char</span> *<span class="keyword">const</span> *array);</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/daa/my__wordarray_8h.html#a0d12564fb47309677681c713a3e3c201">my_wordarray_showln</a>(<span class="keywordtype">char</span> *<span class="keyword">const</span> *array);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/daa/my__wordarray_8h.html#a32f1f4901c180f0555c194d423bf160f">my_wordarray_show</a>(<span class="keywordtype">char</span> *<span class="keyword">const</span> *array);</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="amy__wordarray_8h_html_a0d12564fb47309677681c713a3e3c201"><div class="ttname"><a href="../../d1/daa/my__wordarray_8h.html#a0d12564fb47309677681c713a3e3c201">my_wordarray_showln</a></div><div class="ttdeci">void my_wordarray_showln(char *const *array)</div><div class="ttdoc">print each char * of the 2d array with a newline after each char *</div><div class="ttdef"><b>Definition:</b> my_wordarray_show.c:16</div></div>
-<div class="ttc" id="amy__wordarray_8h_html_a1178850a2625a9744bb12a3e2cd2e304"><div class="ttname"><a href="../../d1/daa/my__wordarray_8h.html#a1178850a2625a9744bb12a3e2cd2e304">my_wordarray_len</a></div><div class="ttdeci">int my_wordarray_len(char *const *array)</div><div class="ttdoc">get length of null terminated 2d array</div><div class="ttdef"><b>Definition:</b> my_wordarray_len.c:17</div></div>
-<div class="ttc" id="amy__wordarray_8h_html_a32f1f4901c180f0555c194d423bf160f"><div class="ttname"><a href="../../d1/daa/my__wordarray_8h.html#a32f1f4901c180f0555c194d423bf160f">my_wordarray_show</a></div><div class="ttdeci">void my_wordarray_show(char *const *array)</div><div class="ttdoc">print each char * of the 2d array</div><div class="ttdef"><b>Definition:</b> my_wordarray_show.c:32</div></div>
-<div class="ttc" id="amy__wordarray_8h_html_a3f5acd9b0de5a1a9bf3aa55576875daf"><div class="ttname"><a href="../../d1/daa/my__wordarray_8h.html#a3f5acd9b0de5a1a9bf3aa55576875daf">my_wordarray_from_str</a></div><div class="ttdeci">char ** my_wordarray_from_str(const char *str, char delim)</div><div class="ttdoc">put each &quot;word&quot; defining by delimiters in a 2d array</div><div class="ttdef"><b>Definition:</b> my_wordarray_from_str.c:78</div></div>
-<div class="ttc" id="amy__wordarray_8h_html_a444ed55bcd2699486036cc86cdb078ae"><div class="ttname"><a href="../../d1/daa/my__wordarray_8h.html#a444ed55bcd2699486036cc86cdb078ae">my_wordarray_get_index_startswith</a></div><div class="ttdeci">int my_wordarray_get_index_startswith(char *const *arr, char const *str)</div><div class="ttdoc">search the first occurence of str in the 2d array and get its index</div><div class="ttdef"><b>Definition:</b> my_wordarray_index_startswith.c:19</div></div>
-<div class="ttc" id="amy__wordarray_8h_html_addd6e8064ccf1bc8500b6930b2f3a206"><div class="ttname"><a href="../../d1/daa/my__wordarray_8h.html#addd6e8064ccf1bc8500b6930b2f3a206">my_wordarray_free</a></div><div class="ttdeci">void my_wordarray_free(char **arr)</div><div class="ttdoc">free a word array null terminated</div><div class="ttdef"><b>Definition:</b> my_wordarray_free.c:15</div></div>
-<div class="ttc" id="amy__wordarray_8h_html_af23df783518e97caf27a003150f31742"><div class="ttname"><a href="../../d1/daa/my__wordarray_8h.html#af23df783518e97caf27a003150f31742">my_wordarray_from_wordarray</a></div><div class="ttdeci">char ** my_wordarray_from_wordarray(char *const env[])</div><div class="ttdoc">copy a null terminated 2d array null terminated 1d array</div><div class="ttdef"><b>Definition:</b> my_wordarray_from_wordarray.c:19</div></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="../../d1/daa/my__wordarray_8h.html#a0d12564fb47309677681c713a3e3c201">   51</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/daa/my__wordarray_8h.html#a0d12564fb47309677681c713a3e3c201">my_wordarray_showln</a>(<span class="keywordtype">char</span> *<span class="keyword">const</span> *array);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="../../d1/daa/my__wordarray_8h.html#a32f1f4901c180f0555c194d423bf160f">   57</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/daa/my__wordarray_8h.html#a32f1f4901c180f0555c194d423bf160f">my_wordarray_show</a>(<span class="keywordtype">char</span> *<span class="keyword">const</span> *array);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="amy__wordarray_8h_html_a0d12564fb47309677681c713a3e3c201"><div class="ttname"><a href="../../d1/daa/my__wordarray_8h.html#a0d12564fb47309677681c713a3e3c201">my_wordarray_showln</a></div><div class="ttdeci">void my_wordarray_showln(char *const *array)</div><div class="ttdoc">print each char * of the 2d array with a newline after each char *</div></div>
+<div class="ttc" id="amy__wordarray_8h_html_a1178850a2625a9744bb12a3e2cd2e304"><div class="ttname"><a href="../../d1/daa/my__wordarray_8h.html#a1178850a2625a9744bb12a3e2cd2e304">my_wordarray_len</a></div><div class="ttdeci">int my_wordarray_len(char *const *array)</div><div class="ttdoc">get length of null terminated 2d array</div></div>
+<div class="ttc" id="amy__wordarray_8h_html_a32f1f4901c180f0555c194d423bf160f"><div class="ttname"><a href="../../d1/daa/my__wordarray_8h.html#a32f1f4901c180f0555c194d423bf160f">my_wordarray_show</a></div><div class="ttdeci">void my_wordarray_show(char *const *array)</div><div class="ttdoc">print each char * of the 2d array</div></div>
+<div class="ttc" id="amy__wordarray_8h_html_a3f5acd9b0de5a1a9bf3aa55576875daf"><div class="ttname"><a href="../../d1/daa/my__wordarray_8h.html#a3f5acd9b0de5a1a9bf3aa55576875daf">my_wordarray_from_str</a></div><div class="ttdeci">char ** my_wordarray_from_str(const char *str, char delim)</div><div class="ttdoc">put each &quot;word&quot; defining by delimiters in a 2d array</div></div>
+<div class="ttc" id="amy__wordarray_8h_html_a444ed55bcd2699486036cc86cdb078ae"><div class="ttname"><a href="../../d1/daa/my__wordarray_8h.html#a444ed55bcd2699486036cc86cdb078ae">my_wordarray_get_index_startswith</a></div><div class="ttdeci">int my_wordarray_get_index_startswith(char *const *arr, char const *str)</div><div class="ttdoc">search the first occurence of str in the 2d array and get its index</div></div>
+<div class="ttc" id="amy__wordarray_8h_html_addd6e8064ccf1bc8500b6930b2f3a206"><div class="ttname"><a href="../../d1/daa/my__wordarray_8h.html#addd6e8064ccf1bc8500b6930b2f3a206">my_wordarray_free</a></div><div class="ttdeci">void my_wordarray_free(char **arr)</div><div class="ttdoc">free a word array null terminated</div></div>
+<div class="ttc" id="amy__wordarray_8h_html_af23df783518e97caf27a003150f31742"><div class="ttname"><a href="../../d1/daa/my__wordarray_8h.html#af23df783518e97caf27a003150f31742">my_wordarray_from_wordarray</a></div><div class="ttdeci">char ** my_wordarray_from_wordarray(char *const env[])</div><div class="ttdoc">copy a null terminated 2d array null terminated 1d array</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.9.3-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="../../dir_5a30104352ef4255dc24354b02eb2d20.html">include</a></li><li class="navelem"><a class="el" href="../../d1/daa/my__wordarray_8h.html">my_wordarray.h</a></li>
-    <li class="footer">Generated on Tue Feb 1 2022 20:19:12 for Sample_C_project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Wed Mar 9 2022 21:55:44 for Sample_C_project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
+<script type ="text/javascript">
+    $(function() {
+        toggleButton = document.createElement('doxygen-awesome-dark-mode-toggle')
+        toggleButton.title = "Toggle Light/Dark Mode"
+        $(document).ready(function() {
+            document.getElementById("MSearchBox").parentNode.appendChild(toggleButton)
+        })
+        $(window).resize(function() {
+            document.getElementById("MSearchBox").parentNode.appendChild(toggleButton)
+        })
+    })
+</script>
 </body>
 </html>

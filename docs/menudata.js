@@ -31,10 +31,14 @@ var menudata={children:[
 {text:"a",url:"globals.html#index_a"},
 {text:"b",url:"globals.html#index_b"},
 {text:"f",url:"globals.html#index_f"},
+{text:"g",url:"globals.html#index_g"},
+{text:"j",url:"globals.html#index_j"},
 {text:"m",url:"globals.html#index_m"},
 {text:"n",url:"globals.html#index_n"},
 {text:"t",url:"globals.html#index_t"}]},
 {text:"Functions",url:"globals_func.html",children:[
 {text:"f",url:"globals_func.html#index_f"},
+{text:"g",url:"globals_func.html#index_g"},
+{text:"j",url:"globals_func.html#index_j"},
 {text:"m",url:"globals_func.html#index_m"}]},
 {text:"Macros",url:"globals_defs.html"}]}]}]}
