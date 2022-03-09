@@ -29,4 +29,21 @@ int fs_get_size(char const *path);
 **/
 int fs_open_ronly(char const *path);
 
+/**
+** @brief get the filename of a filepath-like
+** @param path the path of the filepath-like
+** @param delim delimiter using to separate folders inside the path
+** @return pointer to the start of the filename in the path
+**/
+const char *get_filename(const char *path, char delim);
+
+/**
+** @brief join path with a delim
+** @param delim the delimiter to use
+** @param nb_path number of path after this parameter
+** @param ... paths
+** @return the new malloced char *
+**/
+char *join_path(char delim, int nb_path, ...);
+
 #endif

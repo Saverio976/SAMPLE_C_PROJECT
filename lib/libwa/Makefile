@@ -52,7 +52,7 @@ LIBS_DEP	=	../libstr/libstr.a \
 
 %.o:	%.c
 	@$(CC) $(CFLAGS) $^ -c -o $@
-	@echo -e $(BLUE)'compil : $(notdir $^) -> $(notdir $@)'$(RESET)
+	@echo -e $(BLUE)'[compil]: $(notdir $^) -> $(notdir $@)'$(RESET)
 
 all: 	CURR_RULE = all
 all: 	init

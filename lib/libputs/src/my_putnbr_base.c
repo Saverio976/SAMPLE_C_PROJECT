@@ -9,12 +9,6 @@
 #include "my_conversions.h"
 #include "my_puts.h"
 
-/**
-** @brief write nb on base base in stdout if base is not null
-** @param nb
-** @param base
-** @return number of char wrote
-**/
 int my_putnbr_base(int nb, char const *base)
 {
     int i = 0;

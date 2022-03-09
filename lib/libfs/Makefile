@@ -30,7 +30,9 @@ SRCDIR		=	src/
 # SRC
 SRC		:=	fs_get_content.c 		\
 			fs_get_size.c			\
-			fs_open_ronly.c
+			fs_open_ronly.c			\
+			get_filename.c			\
+			join_path.c
 SRC		:=	$(addprefix $(SRCDIR),$(SRC))
 
 OBJ		=	$(SRC:%.c=%.o)

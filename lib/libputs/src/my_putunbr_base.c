@@ -17,10 +17,12 @@ static char *dup_and_cat(char *dest, char c, int *cap)
     if (len + 2 >= *cap) {
         *cap = *cap + 12;
         new = my_calloc(*cap);
-        if (!new)
+        if (!new) {
             return (NULL);
-        for (int i = 0; i < len; i++)
+        }
+        for (int i = 0; i < len; i++) {
             new[i] = dest[i];
+        }
         free(dest);
         dest = new;
     }
@@ -28,12 +30,6 @@ static char *dup_and_cat(char *dest, char c, int *cap)
     return (dest);
 }
 
-/**
-** @brief write the unsigned nb on stdout if base is not null
-** @param nb
-** @param base
-** @return the number of char wrote
-**/
 int my_putunbr_base(unsigned int nb, char const *base)
 {
     int i = 0;
