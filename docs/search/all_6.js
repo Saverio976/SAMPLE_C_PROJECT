@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['null_0',['NULL',['../de/d90/my__macro_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4',1,'my_macro.h']]]
+  ['key_0',['key',['../d5/de2/structdico__s.html#a2a98383dbb58ee788c26c9a4b9d3145b',1,'dico_s']]]
 ];

@@ -1,4 +1,4 @@
 var annotated_dup =
 [
-    [ "specifier_struct", "d8/d66/structspecifier__struct.html", "d8/d66/structspecifier__struct" ]
+    [ "dico_s", "d5/de2/structdico__s.html", "d5/de2/structdico__s" ]
 ];

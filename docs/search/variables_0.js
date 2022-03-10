@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fptr_0',['fptr',['../d8/d66/structspecifier__struct.html#ae1bbc107df8c351c826537fab82bbb14',1,'specifier_struct']]]
+  ['destroy_0',['destroy',['../d5/de2/structdico__s.html#ae628ba5312ea14739c5a63af941e2c73',1,'dico_s']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['specifier_5ft_0',['specifier_t',['../de/d0c/my__printf_8h.html#afca61e1e713e6ba169ce58f12bd29c56',1,'my_printf.h']]]
+  ['dico_5ft_0',['dico_t',['../d4/d3d/my__dico_8h.html#a5732550a4d01c7b80565bf4ba38050d3',1,'my_dico.h']]]
 ];

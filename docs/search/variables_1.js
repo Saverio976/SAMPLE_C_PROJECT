@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['prefix_0',['prefix',['../d8/d66/structspecifier__struct.html#aea950a8b11025d76fd96f3228e4a46be',1,'specifier_struct']]]
+  ['key_0',['key',['../d5/de2/structdico__s.html#a2a98383dbb58ee788c26c9a4b9d3145b',1,'dico_s']]]
 ];

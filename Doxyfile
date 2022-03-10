@@ -875,6 +875,7 @@ WARN_LOGFILE           =
 # Note: If this tag is empty the current directory is searched.
 
 INPUT                  = ./lib/include/my_conversions.h \
+                         ./lib/include/my_dico.h \
                          ./lib/include/my_fs.h \
                          ./lib/include/my_macro.h \
                          ./lib/include/my_puts.h \
