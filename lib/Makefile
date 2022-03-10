@@ -27,6 +27,8 @@ CURR_RULE	=	all
 # SUBMODULE LIB
 LCONV		:=	libconv/libconv.a
 
+LDICO		:=	libdico/libdico.a
+
 LFS			:=	libfs/libfs.a
 
 LPUTS		:=	libputs/libputs.a
@@ -35,7 +37,7 @@ LSTR		:=	libstr/libstr.a
 
 LWA			:=	libwa/libwa.a
 
-ALL_SUB_LIB	:=	$(LCONV) $(LFS) $(LPUTS) $(LSTR) $(LWA)
+ALL_SUB_LIB	:=	$(LCONV) $(LDICO) $(LFS) $(LPUTS) $(LSTR) $(LWA)
 # ----------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------
