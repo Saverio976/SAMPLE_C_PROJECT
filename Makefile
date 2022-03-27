@@ -149,16 +149,14 @@ ifeq ($(NAME), $NAME)
 	@echo -e $(RED)'Make -C .git/ init_repo NAME=name_of_proj'$(RESET)
 	@exit 1
 endif
-	rm -rf docs/
-	rm -rf assets/
-	rm -rf Doxyfile
-	rm -rf README.md
-	mv include/ ..
-	mv lib/ ..
-	mv src/ ..
-	mv tests/ ..
-	sed -n '/init_repo/q;p' Makefile > ../Makefile
-	rm -f Makefile
+	$(RM) docs/ assets/ Doxyfile README.md
+	mv include/ ../
+	mv lib/ ../
+	mv src/ ../
+	mv tests/ ../
 	mv gitignore ../.gitignore
 	mv github ../.github
+	mv ./compile_flags.txt ../
+	sed -n '/init_repo/q;p' Makefile > ../Makefile
+	$(RM) Makefile
 	find .. -type f -exec sed -i "s/\$$NAME/$(NAME)/g" {} \;
