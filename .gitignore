@@ -7,3 +7,4 @@
 *.tmp
 vgcore*
 $NAME
+compile_flags.txt
