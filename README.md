@@ -27,12 +27,20 @@ make -C .git/ init_repo NAME=PROJECT_NAME
 GG you have a preconfigured project that look like this:
 ```txt
 .
+├── github
+│   └── workflows
+│       ├── makefile.yml
+│       ├── normatrix.yml
+│       └── normez.yml
+├── gitignore
 ├── include
 │   └── proj.h
 ├── lib
 │   ├── include
 │   │   ├── my_conversions.h
+│   │   ├── my_dico.h
 │   │   ├── my_fs.h
+│   │   ├── my_list.h
 │   │   ├── my_macro.h
 │   │   ├── my_puts.h
 │   │   ├── my_strings.h
@@ -46,12 +54,30 @@ GG you have a preconfigured project that look like this:
 │   │       ├── my_itoa_base_err.c
 │   │       ├── my_itoa.c
 │   │       └── my_itoa_err.c
+│   ├── libdico
+│   │   ├── Makefile
+│   │   └── src
+│   │       ├── add.c
+│   │       ├── destroy.c
+│   │       ├── get.c
+│   │       ├── pop.c
+│   │       └── rem.c
 │   ├── libfs
 │   │   ├── Makefile
 │   │   └── src
 │   │       ├── fs_get_content.c
 │   │       ├── fs_get_size.c
-│   │       └── fs_open_ronly.c
+│   │       ├── fs_open_ronly.c
+│   │       ├── get_filename.c
+│   │       └── join_path.c
+│   ├── liblist
+│   │   ├── Makefile
+│   │   └── src
+│   │       ├── add.c
+│   │       ├── destroy.c
+│   │       ├── get.c
+│   │       ├── insert.c
+│   │       └── len.c
 │   ├── libputs
 │   │   ├── Makefile
 │   │   └── src
@@ -83,7 +109,8 @@ GG you have a preconfigured project that look like this:
 │   │       ├── my_strcpy.c
 │   │       ├── my_strdup.c
 │   │       ├── my_strlen.c
-│   │       └── my_strstartswith.c
+│   │       ├── my_strstartswith.c
+│   │       └── my_strstrip.c
 │   ├── libwa
 │   │   ├── Makefile
 │   │   └── src
@@ -94,14 +121,16 @@ GG you have a preconfigured project that look like this:
 │   │       ├── my_wordarray_len.c
 │   │       └── my_wordarray_show.c
 │   └── Makefile
+├── LICENSE
 ├── Makefile
+├── README.md
 ├── src
 │   └── main.c
 └── tests
-    ├── fn_tests.sh
-    └── test_basic.c
+    ├── fn_tests.sh
+    └── test_basic.c
 
-16 directories, 57 files
+22 directories, 80 files
 ```
 
 ## lib docs
