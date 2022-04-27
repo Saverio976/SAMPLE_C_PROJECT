@@ -36,7 +36,7 @@ char *my_itoa(int nb);
 ** @param is_error
 ** @return null if there is error; else the str
 **/
-char *my_igetstr(int nb, int *is_error);
+char *my_igetstr_err(int nb, int *is_error);
 
 /**
 ** @brief int to str base base if base not null

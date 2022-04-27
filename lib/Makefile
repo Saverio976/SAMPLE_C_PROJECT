@@ -31,13 +31,15 @@ LDICO		:=	libdico/libdico.a
 
 LFS			:=	libfs/libfs.a
 
+LLIST		:=	liblist/liblist.a
+
 LPUTS		:=	libputs/libputs.a
 
 LSTR		:=	libstr/libstr.a
 
 LWA			:=	libwa/libwa.a
 
-ALL_SUB_LIB	:=	$(LCONV) $(LDICO) $(LFS) $(LPUTS) $(LSTR) $(LWA)
+ALL_SUB_LIB	:=	$(LCONV) $(LDICO) $(LFS) $(LLIST) $(LPUTS) $(LSTR) $(LWA)
 # ----------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------

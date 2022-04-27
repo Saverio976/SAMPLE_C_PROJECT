@@ -24,15 +24,13 @@ static int get_len_str_total(va_list ap, int nb_path)
     return (len);
 }
 
-static int fill_char_with_delim(char delim, const char *str, int index,
+static int fill_char_with_delim(const char *str, int index,
         char *new)
 {
     for (int j = 0; str[j] != '\0'; j++) {
         new[index] = str[j];
         index += 1;
     }
-    new[index] = delim;
-    index += 1;
     return (index);
 }
 
@@ -42,7 +40,7 @@ static char *create_new_path(char delim, int nb_path, va_list ap, int len)
     const char *tmp = NULL;
     int index = 0;
 
-    new = malloc(sizeof(char) * (len + 1));
+    new = malloc(sizeof(char) * (len + 1 + nb_path - 1));
     if (new == NULL) {
         return (NULL);
     }
@@ -51,9 +49,12 @@ static char *create_new_path(char delim, int nb_path, va_list ap, int len)
         if (tmp == NULL) {
             continue;
         }
-        index = fill_char_with_delim(delim, tmp, index, new);
+        index = fill_char_with_delim(tmp, index, new);
+        if (index <= len) {
+            new[index++] = delim;
+        }
     }
-    new[len] = '\0';
+    new[len + nb_path - 1] = '\0';
     return (new);
 }
 

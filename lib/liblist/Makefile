@@ -1,13 +1,13 @@
 ##
 ## EPITECH PROJECT, 2022
-## LIBSTR
+## LIBPUTS
 ## File description:
-## make the strings lib
+## make the puts lib
 ##
 
 # ----------------------------------------------------------------------------
 # TARGET
-NAME		=	libstr.a
+NAME		=	liblist.a
 # ----------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------
@@ -19,39 +19,32 @@ GREEN 		= 	'\033[1;32m'
 RESET		=	'\033[0m'
 # ----------------------------------------------------------------------------
 
-SRCDIR		=	src/
-
 # ----------------------------------------------------------------------------
 # IN-MAKEFILE SETTINGS
 CURR_RULE	=	all
 # ----------------------------------------------------------------------------
 
+SRCDIR		=	src/
+
 # ----------------------------------------------------------------------------
 # SRC
-SRC			:=	my_calloc.c 		\
-				my_revstr.c			\
-				my_strcat.c			\
-				my_strcmp.c			\
-				my_strcontainc.c	\
-				my_strcontains.c	\
-				my_strcpy.c			\
-				my_strdup.c			\
-				my_strlen.c			\
-				my_strstartswith.c	\
-				my_strstrip.c
-SRC 		:=	$(addprefix $(SRCDIR),$(SRC))
+SRC		:= src/add.c		\
+		   src/destroy.c	\
+		   src/get.c		\
+		   src/insert.c		\
+		   src/len.c
 
-OBJ			=	$(SRC:%.c=%.o)
+OBJ		=	$(SRC:%.c=%.o)
 # ----------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------
 # FLAGS
-CFLAGS		=	-I../include
+CFLAGS		:=	-I../include -Wall -Wextra -Wpedantic
 # ----------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------
 # DEPENDANCES
-LIBS_DEP	=
+LIBS_DEP	=	../libstr/libstr.a
 # ----------------------------------------------------------------------------
 
 %.o:	%.c
@@ -68,7 +61,11 @@ $(NAME): init $(LIBS_DEP) $(OBJ)
 	@echo -e $(GREEN)'[finished]: $(NAME): $(CURR_RULE)'$(RESET)
 
 $(LIBS_DEP):
-	$(foreach LIB,$(LIBS_DEP),$(MAKE) -C $(dir $(LIB));)
+	$(foreach LIB,$(LIBS_DEP),$(MAKE) -C $(dir $(LIB)) $(RULE);)
+
+debug: RULE = debug
+debug: CFLAGS += -g3
+debug: fclean $(NAME)
 
 clean:	CURR_RULE = clean
 clean:	init

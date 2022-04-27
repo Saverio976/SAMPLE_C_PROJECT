@@ -20,3 +20,14 @@ char *my_strcpy(char *dest, char const *src)
     dest[i] = '\0';
     return (dest);
 }
+
+char *my_strncpy(char *dest, char const *src, int n)
+{
+    if (src == NULL) {
+        return (NULL);
+    }
+    for (int i = 0; src[i] != '\0' && i < n; i++) {
+        dest[i] = src[i];
+    }
+    return (dest);
+}
