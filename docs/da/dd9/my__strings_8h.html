@@ -119,6 +119,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a208bad889729d729723414b4abe69d8e"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dd9/my__strings_8h.html#a208bad889729d729723414b4abe69d8e">my_strcpy</a> (char *dest, char const *src)</td></tr>
 <tr class="memdesc:a208bad889729d729723414b4abe69d8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">copy str in dest and add \0 at the end  <a href="../../da/dd9/my__strings_8h.html#a208bad889729d729723414b4abe69d8e">More...</a><br /></td></tr>
 <tr class="separator:a208bad889729d729723414b4abe69d8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40d0ed48582868237521e83b15434970"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dd9/my__strings_8h.html#a40d0ed48582868237521e83b15434970">my_strncpy</a> (char *dest, char const *src, int n)</td></tr>
+<tr class="memdesc:a40d0ed48582868237521e83b15434970"><td class="mdescLeft">&#160;</td><td class="mdescRight">copy n char from src to dest  <a href="../../da/dd9/my__strings_8h.html#a40d0ed48582868237521e83b15434970">More...</a><br /></td></tr>
+<tr class="separator:a40d0ed48582868237521e83b15434970"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a235b1e1e3b7031953cd4998d224c16bc"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dd9/my__strings_8h.html#a235b1e1e3b7031953cd4998d224c16bc">my_strdup</a> (char const *str)</td></tr>
 <tr class="memdesc:a235b1e1e3b7031953cd4998d224c16bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">duplicate str (with malloc) and add a \0 at the end  <a href="../../da/dd9/my__strings_8h.html#a235b1e1e3b7031953cd4998d224c16bc">More...</a><br /></td></tr>
 <tr class="separator:a235b1e1e3b7031953cd4998d224c16bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -128,6 +131,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a8496d2243ec3ccb596f9b72d6296f42a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dd9/my__strings_8h.html#a8496d2243ec3ccb596f9b72d6296f42a">my_strstartswith</a> (char const *str, char const *substr)</td></tr>
 <tr class="memdesc:a8496d2243ec3ccb596f9b72d6296f42a"><td class="mdescLeft">&#160;</td><td class="mdescRight">check if str start with substr  <a href="../../da/dd9/my__strings_8h.html#a8496d2243ec3ccb596f9b72d6296f42a">More...</a><br /></td></tr>
 <tr class="separator:a8496d2243ec3ccb596f9b72d6296f42a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a7dd9bf434d97b7de4585a7a06c3e75"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dd9/my__strings_8h.html#a9a7dd9bf434d97b7de4585a7a06c3e75">my_strstrip</a> (const char *str, const char *strips)</td></tr>
+<tr class="memdesc:a9a7dd9bf434d97b7de4585a7a06c3e75"><td class="mdescLeft">&#160;</td><td class="mdescRight">strip str from any chars in strips  <a href="../../da/dd9/my__strings_8h.html#a9a7dd9bf434d97b7de4585a7a06c3e75">More...</a><br /></td></tr>
+<tr class="separator:a9a7dd9bf434d97b7de4585a7a06c3e75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ab74a4a2085999187209c09ff5fa084d3" name="ab74a4a2085999187209c09ff5fa084d3"></a>
@@ -428,6 +434,51 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a40d0ed48582868237521e83b15434970" name="a40d0ed48582868237521e83b15434970"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40d0ed48582868237521e83b15434970">&#9670;&nbsp;</a></span>my_strncpy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * my_strncpy </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char const *&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>copy n char from src to dest </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dest</td><td>destination </td></tr>
+    <tr><td class="paramname">src</td><td>source </td></tr>
+    <tr><td class="paramname">n</td><td>number to copy</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>dest </dd></dl>
+
+</div>
+</div>
 <a id="a8496d2243ec3ccb596f9b72d6296f42a" name="a8496d2243ec3ccb596f9b72d6296f42a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8496d2243ec3ccb596f9b72d6296f42a">&#9670;&nbsp;</a></span>my_strstartswith()</h2>
 
@@ -466,6 +517,44 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a9a7dd9bf434d97b7de4585a7a06c3e75" name="a9a7dd9bf434d97b7de4585a7a06c3e75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a7dd9bf434d97b7de4585a7a06c3e75">&#9670;&nbsp;</a></span>my_strstrip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * my_strstrip </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>strips</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>strip str from any chars in strips </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>string to strip </td></tr>
+    <tr><td class="paramname">strips</td><td>char to strip of str</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>NULL if str or strips is null; the new str if ok </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.9.3-->
@@ -473,7 +562,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="../../dir_5a30104352ef4255dc24354b02eb2d20.html">include</a></li><li class="navelem"><a class="el" href="../../da/dd9/my__strings_8h.html">my_strings.h</a></li>
-    <li class="footer">Generated on Thu Mar 10 2022 17:21:27 for Sample_C_project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Wed Apr 27 2022 17:08:25 for Sample_C_project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 <script type ="text/javascript">

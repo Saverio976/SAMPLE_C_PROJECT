@@ -8,5 +8,5 @@ var searchData=
   ['dico_5ft_5fget_5fvalue_5',['dico_t_get_value',['../d4/d3d/my__dico_8h.html#a341b2c5373e2037085c7bbdeb0ebd261',1,'my_dico.h']]],
   ['dico_5ft_5fpop_5felem_6',['dico_t_pop_elem',['../d4/d3d/my__dico_8h.html#ad9e381d1703f9a4b9a6da91db66e2ff2',1,'my_dico.h']]],
   ['dico_5ft_5fpop_5fvalue_7',['dico_t_pop_value',['../d4/d3d/my__dico_8h.html#a7eb8eb6fc21dcd59581aac72681dfac8',1,'my_dico.h']]],
-  ['dico_5ft_5frem_8',['dico_t_rem',['../d4/d3d/my__dico_8h.html#a018e8af68f0b8e8a8bd96517dc122e20',1,'my_dico.h']]]
+  ['dico_5ft_5frem_8',['dico_t_rem',['../d4/d3d/my__dico_8h.html#a886ce2e5da19afc12507bff5407749fe',1,'my_dico.h']]]
 ];

@@ -107,9 +107,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a4b3d972354ba72db29fb080cc1ede333"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d9e/my__conversions_8h.html#a4b3d972354ba72db29fb080cc1ede333">my_itoa</a> (int nb)</td></tr>
 <tr class="memdesc:a4b3d972354ba72db29fb080cc1ede333"><td class="mdescLeft">&#160;</td><td class="mdescRight">int to str in base 10  <a href="../../de/d9e/my__conversions_8h.html#a4b3d972354ba72db29fb080cc1ede333">More...</a><br /></td></tr>
 <tr class="separator:a4b3d972354ba72db29fb080cc1ede333"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a4539a598aca46dc9732340de324cc0"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d9e/my__conversions_8h.html#a8a4539a598aca46dc9732340de324cc0">my_igetstr</a> (int nb, int *is_error)</td></tr>
-<tr class="memdesc:a8a4539a598aca46dc9732340de324cc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">int to str in base 10  <a href="../../de/d9e/my__conversions_8h.html#a8a4539a598aca46dc9732340de324cc0">More...</a><br /></td></tr>
-<tr class="separator:a8a4539a598aca46dc9732340de324cc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ed73f1f7d371030fad8a7c7d5e0f1df"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d9e/my__conversions_8h.html#a7ed73f1f7d371030fad8a7c7d5e0f1df">my_igetstr_err</a> (int nb, int *is_error)</td></tr>
+<tr class="memdesc:a7ed73f1f7d371030fad8a7c7d5e0f1df"><td class="mdescLeft">&#160;</td><td class="mdescRight">int to str in base 10  <a href="../../de/d9e/my__conversions_8h.html#a7ed73f1f7d371030fad8a7c7d5e0f1df">More...</a><br /></td></tr>
+<tr class="separator:a7ed73f1f7d371030fad8a7c7d5e0f1df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0380f030ff53a4e3e48b25d324d2257d"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d9e/my__conversions_8h.html#a0380f030ff53a4e3e48b25d324d2257d">my_igetstr_base</a> (int nb, char const *base)</td></tr>
 <tr class="memdesc:a0380f030ff53a4e3e48b25d324d2257d"><td class="mdescLeft">&#160;</td><td class="mdescRight">int to str base base if base not null  <a href="../../de/d9e/my__conversions_8h.html#a0380f030ff53a4e3e48b25d324d2257d">More...</a><br /></td></tr>
 <tr class="separator:a0380f030ff53a4e3e48b25d324d2257d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -180,44 +180,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 if there is an error and *is_error set to 1; the number else </dd></dl>
-
-</div>
-</div>
-<a id="a8a4539a598aca46dc9732340de324cc0" name="a8a4539a598aca46dc9732340de324cc0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a4539a598aca46dc9732340de324cc0">&#9670;&nbsp;</a></span>my_igetstr()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">char * my_igetstr </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nb</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>is_error</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>int to str in base 10 </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">nb</td><td></td></tr>
-    <tr><td class="paramname">is_error</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>null if there is error; else the str </dd></dl>
 
 </div>
 </div>
@@ -304,6 +266,44 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a7ed73f1f7d371030fad8a7c7d5e0f1df" name="a7ed73f1f7d371030fad8a7c7d5e0f1df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ed73f1f7d371030fad8a7c7d5e0f1df">&#9670;&nbsp;</a></span>my_igetstr_err()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * my_igetstr_err </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>is_error</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>int to str in base 10 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nb</td><td></td></tr>
+    <tr><td class="paramname">is_error</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>null if there is error; else the str </dd></dl>
+
+</div>
+</div>
 <a id="a4b3d972354ba72db29fb080cc1ede333" name="a4b3d972354ba72db29fb080cc1ede333"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4b3d972354ba72db29fb080cc1ede333">&#9670;&nbsp;</a></span>my_itoa()</h2>
 
@@ -338,7 +338,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="../../dir_5a30104352ef4255dc24354b02eb2d20.html">include</a></li><li class="navelem"><a class="el" href="../../de/d9e/my__conversions_8h.html">my_conversions.h</a></li>
-    <li class="footer">Generated on Thu Mar 10 2022 17:21:27 for Sample_C_project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Wed Apr 27 2022 17:08:25 for Sample_C_project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 <script type ="text/javascript">
